@@ -5,22 +5,27 @@ import java.net.URL;
 import java.util.HashMap;
 
 import org.openqa.selenium.MutableCapabilities;
+import org.testng.Reporter;
 //import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.AfterClass;
-//import org.testng.annotations.AfterMethod;
-//import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-//import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
 
 import com.myBank.pages.AppObjects;
+import com.myBank.utility.Utils;
 
 
 public class BaseClass {
 	protected AndroidDriver driver;
 	protected AppObjects appObjects;
+	protected Utils utils;
+	
 	
 	
 	//local
@@ -30,21 +35,19 @@ public class BaseClass {
 	//public String app_myBank = "bs://dfc767e8d4ff36dd63883d8439be773df5c5937d";
 	
 	//jenkins config
-	public String userName = System.getenv("BROWSERSTACK_USERNAME"); // heralddelacruz_DjwAuz
-	public String accessKey = System.getenv("BROWSERSTACK_ACCESSKEY");  // GprQ3CPzVt9qb8F6pxpx
-	public String buildName_myBank = System.getenv("BROWSERSTACK_BUILD_NAME"); 
-	public String app_myBank = System.getenv("BROWSERSTACK_APP_ID_myBank"); 
+	public static String userName = System.getenv("BROWSERSTACK_USERNAME"); // heralddelacruz_DjwAuz
+	public static String accessKey = System.getenv("BROWSERSTACK_ACCESSKEY");  // GprQ3CPzVt9qb8F6pxpx
+	public static String buildName_myBank = System.getenv("BROWSERSTACK_BUILD_NAME"); 
+	public static String app_myBank = System.getenv("BROWSERSTACK_APP_ID_myBank"); 
 	//mybank : bs://dfc767e8d4ff36dd63883d8439be773df5c5937d
 	
 	//static String browserstackLocal = System.getenv("BROWSERSTACK_LOCAL"); 
 	//static String browserstackLocalIdentifier = System.getenv("BROWSERSTACK_LOCAL_IDENTIFIER");
-    
+  
 	
-	
-	
-    public String URL = "http://" + userName + ":" + accessKey + "@hub-cloud.browserstack.com/wd/hub";
+    public static String URL = "http://" + userName + ":" + accessKey + "@hub-cloud.browserstack.com/wd/hub";
 		
-    @BeforeTest(alwaysRun = true)
+    @BeforeMethod(alwaysRun = true)
     public void setUp() throws IOException {
     	 
     	
@@ -72,12 +75,11 @@ public class BaseClass {
 	 * }
 	 */
     
-	 
-   
-   
-    @AfterClass(alwaysRun = true)
+	
+    @AfterMethod(alwaysRun = true)
     public void tearDown() {
-        driver.quit();
-    	System.out.print("test done");
+    	System.out.print("Test Finish /n");
+    	driver.closeApp();
+    	
     }
 }

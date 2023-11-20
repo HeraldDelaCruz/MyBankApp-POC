@@ -1,5 +1,6 @@
 package com.browserstack;
 
+import org.testng.Reporter;
 import org.testng.annotations.Test;
 
 import com.myBank.pages.AppObjects;
@@ -12,17 +13,22 @@ public class MyBank_01 extends BaseClass {
     public void myBank_01() throws Exception {
     	
     	appObjects = new AppObjects(driver);
+    	utils = new Utils(driver);
+    	
     	//driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-    	Utils.waitApptoLoad();
+    	utils.waitApptoLoad();
     	
     	//click on View Account
     	appObjects.clickOnElement(appObjects.ViewAccountsBtn);
     	
-    	//verify BANKING SYSTEM text is displayed
-    	appObjects.bankingSystemTextIsDisplayed();
+		//verify BANKING SYSTEM text is displayed
+    	//appObjects.bankingSystemTextIsDisplayed();
+    	utils.assertTextIsDisplayed(appObjects.BankingSystemtxt);
     	
     	//get accountnums
     	appObjects.getAccountNum();
+    	
+    	System.out.println("Test case 1 : Finished \n");
     }
 }
 
