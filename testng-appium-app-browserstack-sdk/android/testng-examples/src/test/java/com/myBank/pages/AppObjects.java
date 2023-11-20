@@ -1,9 +1,13 @@
 package com.myBank.pages;
 
+import java.util.List;
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
+import org.testng.Reporter;
 
 import com.myBank.utility.Utils;
 
@@ -32,13 +36,6 @@ public class AppObjects extends Utils{
 	String verifyBankSystemtxt = "Banking Systemz";
 	@AndroidFindBy(xpath=".//*[contains(@text, 'Banking System')]")
 	public WebElement BankingSystemtxt;
-	
-
-	
-	
-	
-	
-    
 
 	
 	
@@ -46,14 +43,37 @@ public class AppObjects extends Utils{
 	public void clickOnElement(WebElement ele) {
 		ele.click();
 	}
-	
-	public void BankingSystemTextIsDisplayed () {
+	//get banking system text and check if displayed
+	public void bankingSystemTextIsDisplayed () {
 	String actualText = BankingSystemtxt.getText();
 		if (BankingSystemtxt.isDisplayed()) {
-			System.out.println("Text validation passed. Expected: " + verifyBankSystemtxt + ", Actual: " + actualText);
+			System.out.println("Text validation passed. Expected: " + verifyBankSystemtxt + ", Actual: " + actualText);	 
 		}
 		else {
 			System.out.println("Text validation failed. Expected: " + verifyBankSystemtxt + ", Actual: " + actualText);
        }
 	}
+	
+	//get account number listed and log
+	public void getAccountNum()  {
+		List<WebElement> accountNum = driver.findElements(By.id("com.sleepingpandaaa.bankingsystem:id/CustName"));
+		List<WebElement> accountName = driver.findElements(By.id("com.sleepingpandaaa.bankingsystem:id/AccNum"));
+		
+	 for (int i = 0; i < accountNum.size()-1 ; i++) {
+		 WebElement accountNumbers = accountNum.get(i);
+         String accountDetails = accountNumbers.getText();
+         
+         WebElement accountNames = accountName.get(i);
+		 String accountNamess = accountNames.getText();
+         
+         
+    	//System.out.println("Account number details : " + (i + 1) + " details: " + accountDetails);
+    	Reporter.log("Account " + (i + 1) + " details : " + accountNamess + " " +accountDetails, true);
+       
+	 	}
+
+	 }
+
+
 }
+

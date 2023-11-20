@@ -23,10 +23,15 @@ public class BaseClass {
 	protected AppObjects appObjects;
 	
 	
-	public String userName = System.getenv("BROWSERSTACK_USERNAME"); // heralddelacruz_DjwAuz
-	public String accessKey = System.getenv("BROWSERSTACK_ACCESSKEY");  // GprQ3CPzVt9qb8F6pxpx
+	//local
+	//public String userName = "heralddelacruz_DjwAuz"; // heralddelacruz_DjwAuz
+	//public String accessKey = "GprQ3CPzVt9qb8F6pxpx";  // GprQ3CPzVt9qb8F6pxpx
+	//public String buildName_myBank = "H local run";
+	//public String app_myBank = "bs://dfc767e8d4ff36dd63883d8439be773df5c5937d";
 	
 	//jenkins config
+	public String userName = System.getenv("BROWSERSTACK_USERNAME"); // heralddelacruz_DjwAuz
+	public String accessKey = System.getenv("BROWSERSTACK_ACCESSKEY");  // GprQ3CPzVt9qb8F6pxpx
 	public String buildName_myBank = System.getenv("BROWSERSTACK_BUILD_NAME"); 
 	public String app_myBank = System.getenv("BROWSERSTACK_APP_ID_myBank"); 
 	//mybank : bs://dfc767e8d4ff36dd63883d8439be773df5c5937d
@@ -34,6 +39,9 @@ public class BaseClass {
 	//static String browserstackLocal = System.getenv("BROWSERSTACK_LOCAL"); 
 	//static String browserstackLocalIdentifier = System.getenv("BROWSERSTACK_LOCAL_IDENTIFIER");
     
+	
+	
+	
     public String URL = "http://" + userName + ":" + accessKey + "@hub-cloud.browserstack.com/wd/hub";
 		
     @BeforeTest(alwaysRun = true)

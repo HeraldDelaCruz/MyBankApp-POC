@@ -6,10 +6,10 @@ import com.myBank.pages.AppObjects;
 import com.myBank.utility.Utils;
 
 
-public class ViewAcccount extends BaseClass {
+public class MyBank_01 extends BaseClass {
 
     @Test
-    public void viewAccount() throws Exception {
+    public void myBank_01() throws Exception {
     	
     	appObjects = new AppObjects(driver);
     	//driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -19,8 +19,10 @@ public class ViewAcccount extends BaseClass {
     	appObjects.clickOnElement(appObjects.ViewAccountsBtn);
     	
     	//verify BANKING SYSTEM text is displayed
-    	appObjects.BankingSystemTextIsDisplayed();
+    	appObjects.bankingSystemTextIsDisplayed();
     	
+    	//get accountnums
+    	appObjects.getAccountNum();
     }
 }
 
