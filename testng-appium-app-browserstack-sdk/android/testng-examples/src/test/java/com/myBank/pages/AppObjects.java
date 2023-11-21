@@ -40,7 +40,7 @@ public class AppObjects extends Utils{
 	public WebElement NikitaAccountNum;
 	
 	//Nikita details
-	@AndroidFindBy(id="com.sleepingpandaaa.bankingsystem:id/user_name")
+	@AndroidFindBy(id="com.sleepingpandaaa.bankingsystem:id/CustName")
 	public WebElement Nikita_Name;
 	@AndroidFindBy(id="com.sleepingpandaaa.bankingsystem:id/AccNum")
 	public WebElement Nikita_AccountNum;
@@ -72,15 +72,6 @@ public class AppObjects extends Utils{
 	@AndroidFindBy(xpath=".//*[contains(@text, '9111234562567')]")
 	public WebElement ShebonAccountNum;
 	
-	
-	@AndroidFindBy(xpath=".//*[contains(@text, 'Nikita')]")
-	public String Nikita;
-	
-	@AndroidFindBy(xpath=".//*[contains(@text, 'Shebon')]")
-	public String Shebon;
-	
-	//String Sender = Nikita;
-	//String Receiver = Shebon;
 	
 	@AndroidFindBy(accessibility= "Search")
 	public WebElement History;
@@ -131,10 +122,15 @@ public class AppObjects extends Utils{
 		return transferStatusElem.getText();
 	}
 	
+	public String getSenderName() {
+		WebElement senderNameElem = driver.findElement(By.xpath(".//*[contains(@text, 'Nikita')]"));
+		return senderNameElem.getText();
+	}
 	
-	
-	
-	
+	public String getReceiverName() {
+		WebElement receiverNameElem = driver.findElement(By.xpath(".//*[contains(@text, 'Shebon')]"));
+		return receiverNameElem.getText();
+	}
 	
 	
 	public void sendkeys(String str) {

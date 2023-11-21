@@ -7,7 +7,8 @@ import com.myBank.utility.BaseClass;
 import com.myBank.utility.Utils;
 
 public class FinalExamPOC extends BaseClass {
-    
+	
+	@Test
     public void myBank_01() throws Exception {
     	//MyBank_01
     	//Step 1: Launch MyBank app using .apk file.
@@ -17,23 +18,27 @@ public class FinalExamPOC extends BaseClass {
     	
     	System.out.println("    ");
     	System.out.println("Test case 1 Start");
+    	
+    	//Step 1: Launch MyBank app using .apk file.
     	utils.waitApptoLoad();
     	
-    	//click on View Account
+    	//Step 2: Click on View accounts
     	appObjects.clickOnElement(appObjects.ViewAccountsBtn);
     	
-		//verify BANKING SYSTEM text is displayed
+    	//Step 3: Validate Banking System is displayed on Top
     	//appObjects.bankingSystemTextIsDisplayed();
+    	System.out.println("Verify Banking System text from top if Displayed:");
     	utils.assertTextIsDisplayed(appObjects.BankingSystemtxt);
     	
-    	//get accountnums
+    	//Step 4: Log the number of account displayed in TestNg report.
+    	System.out.println("Get and log the accounts listed in the page:");
     	appObjects.getAccountNum();
     	
     	System.out.println("Test case 1 : Finished");
     	System.out.println("    ");
     }
     
-   
+    @Test
     public void myBank_02() {
     	//MyBank_02
     	//Step 1: Launch MyBank app using .apk file.
@@ -50,15 +55,18 @@ public class FinalExamPOC extends BaseClass {
     	System.out.println("    ");
     	System.out.println("Test case 2 Start");
     	
+    	//Step 1: Launch MyBank app using .apk file.
     	utils.waitApptoLoad();
     	
-    	//click on View Account
+    	//Step 2: Click on View accounts
     	appObjects.clickOnElement(appObjects.ViewAccountsBtn);
     	
-    	//click on User: Nikita
+    	//Step 3: Click on any of the one of the user : Nikita
+    	System.out.println("Navigate User: Nikita");
     	appObjects.clickOnElement(appObjects.NikitaAccountNum);
     	
-    	//validate fields if displayed
+    	//Step 4: Validate below fields are displayed.
+    	System.out.println("Validate Data if displayed:");
     	utils.assertTextIsDisplayed(appObjects.Nikita_Name);
     	utils.assertTextIsDisplayed(appObjects.Nikita_AccountNum);
     	utils.assertTextIsDisplayed(appObjects.Nikita_Email);
@@ -94,6 +102,7 @@ public class FinalExamPOC extends BaseClass {
     	appObjects.clickOnElement(appObjects.ViewAccountsBtn);
     	
     	//Step 3: Click on any of the one of the user , User: Nikita
+    	System.out.println("Navigate User: Nikita as the Sender");
     	appObjects.clickOnElement(appObjects.NikitaAccountNum);
     	
     	//Step 4: Click on Transfer money 
@@ -101,12 +110,14 @@ public class FinalExamPOC extends BaseClass {
     	
     	//Click on Enter amount 
     	String amount = "500";
+    	System.out.println("Send money with amount:" +amount);
     	appObjects.sendkeys(amount);
     	
     	//Step7: Click on Send
     	appObjects.clickOnElement(appObjects.SendMoneyBtn);
     	
     	//Step 8: Select one of the user  , User: Shebon
+    	System.out.println("Navigate User: Shebon as the Receiver");
     	appObjects.clickOnElement(appObjects.ShebonAccountNum);
     	
     	
@@ -117,11 +128,17 @@ public class FinalExamPOC extends BaseClass {
     	String expectedToastMessage = "Transaction Successful!";
         assert toastMessage.equals(expectedToastMessage) : "Toast message verification failed";
     	
-        //System.out.println(appObjects.Nikita + " transfer money to " + appObjects.Shebon + " with amount of " + amount);
+        String senderName = appObjects.getSenderName().substring(15);
+        String receiverName = appObjects.getReceiverName().substring(15);
+        
+        System.out.println("Money from " +senderName+ " is sent to "+receiverName+" with amount of " + amount + " is transfered successfully");
         
     	System.out.println("Test case 3 : Finished");
     	System.out.println("    ");
     	
+    	
+    	
+    	System.out.println("    ");
     	System.out.println("Test case 4 Start");
 
     	//Step 3: Click on arrows on right side 
@@ -132,14 +149,15 @@ public class FinalExamPOC extends BaseClass {
     	String receiver = appObjects.getReceiver();
     	String moneySent = appObjects.moneySent();
     	String transferStatus = appObjects.transferStatus();
+    
     	
-    	if( sender.equals("Nikita") &&
-    		receiver.equals("Shebon") &&
-    		moneySent.equals("500") &&
-    		transferStatus.equals("Success") 
-    			)
+    	if(sender.equalsIgnoreCase("Nikita") && 
+    	   receiver.equalsIgnoreCase("Shebon") &&
+    	   moneySent.equalsIgnoreCase("500.00") &&
+    	   transferStatus.equalsIgnoreCase("Success")
+    			  )
     			 {
-    		System.out.println("Transaction : Money with amount of " +moneySent+ " from " +sender+ " to " +receiver+
+    		System.out.println("Transaction : Money with amount of " +moneySent+ " from " +sender+ " that sent to " +receiver+
     				 " is Displayed in Transaction History Page.");
     			 }
     	else {
