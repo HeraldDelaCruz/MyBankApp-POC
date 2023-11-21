@@ -37,9 +37,8 @@ public class AppObjects extends Utils{
 	
 	//User:Nikita
 	@AndroidFindBy(xpath=".//*[contains(@text, 'Account Number: 9111234563473')]")
-	public WebElement Nikita;
+	public WebElement NikitaAccountNum;
 	
-
 	//Nikita details
 	@AndroidFindBy(id="com.sleepingpandaaa.bankingsystem:id/user_name")
 	public WebElement Nikita_Name;
@@ -61,14 +60,87 @@ public class AppObjects extends Utils{
 	public WebElement AmountField;
 	
 	
+	@AndroidFindBy(id="android:id/button1")
+	public WebElement SendMoneyBtn;
+	
+	@AndroidFindBy(id="android:id/button2")
+	public WebElement CancelBtn;
+	
+	//@AndroidFindBy(className ="android.widget.Toast")
+	//public WebElement ToastMessage;
+	
+	@AndroidFindBy(xpath=".//*[contains(@text, '9111234562567')]")
+	public WebElement ShebonAccountNum;
+	
+	
+	@AndroidFindBy(xpath=".//*[contains(@text, 'Nikita')]")
+	public String Nikita;
+	
+	@AndroidFindBy(xpath=".//*[contains(@text, 'Shebon')]")
+	public String Shebon;
+	
+	//String Sender = Nikita;
+	//String Receiver = Shebon;
+	
+	@AndroidFindBy(accessibility= "Search")
+	public WebElement History;
+	
+	@AndroidFindBy(id= "com.sleepingpandaaa.bankingsystem:id/name1")
+	public WebElement Sender;
+	
+	@AndroidFindBy(id= "com.sleepingpandaaa.bankingsystem:id/name2")
+	public WebElement Receiver;
+	
+	@AndroidFindBy(id= "com.sleepingpandaaa.bankingsystem:id/AccBal")
+	public WebElement MoneySent;
+	
+	@AndroidFindBy(id= "com.sleepingpandaaa.bankingsystem:id/transaction_status")
+	public WebElement TransferStatus;
+	
+	
+	
+	
+	
 	//methods
 	public void clickOnElement(WebElement ele) {
 		ele.click();
 	}
 	
+	public String getToastMessage() {
+		WebElement toastElem = driver.findElement(By.xpath(".//*[contains(@text, 'Transaction Successful!')]"));
+		return toastElem.getText();
+	}
+	
+	public String getSender() {
+		WebElement senderElem = driver.findElement(By.id("com.sleepingpandaaa.bankingsystem:id/name1"));
+		return senderElem.getText();
+	}
+	
+	public String getReceiver() {
+		WebElement receiverElem = driver.findElement(By.id("com.sleepingpandaaa.bankingsystem:id/name2"));
+		return receiverElem.getText();
+	}
+	
+	public String moneySent() {
+		WebElement moneySentElem = driver.findElement(By.id("com.sleepingpandaaa.bankingsystem:id/AccBal"));
+		return moneySentElem.getText();
+	}
+	
+	public String transferStatus() {
+		WebElement transferStatusElem = driver.findElement(By.id("com.sleepingpandaaa.bankingsystem:id/transaction_status"));
+		return transferStatusElem.getText();
+	}
+	
+	
+	
+	
+	
+	
+	
 	public void sendkeys(String str) {
 		AmountField.sendKeys(str);
 	}
+
 	
 	//get banking system text and check if displayed
 	public void bankingSystemTextIsDisplayed () {
@@ -85,22 +157,8 @@ public class AppObjects extends Utils{
         	}
 		}	
 	
-	 
 		
-		//get banking system text and check if displayed using assert 
-		//public static void assertTextIsDisplayed() { 
-		//	  { 
-		//	  String actualText = BankingSystemtxt.getText(); 
-		//	  assert BankingSystemtxt.isDisplayed() : BankingSystemtxt +" is not displayed on the page /r /n - - - - - - - - - - - - - - -";
-		  
-		//System.out.println( actualText + "Text is displayed on the on the page");
-		//System.out.println("- - - - - - - - - - - - - - -"); }
-		//	}
-		 	
-
-		
-		
-		//get account number listed and log
+	//get account number listed and log
 	public void getAccountNum()  {
 		List<WebElement> accountNum = driver.findElements(By.id("com.sleepingpandaaa.bankingsystem:id/CustName"));
 		List<WebElement> accountName = driver.findElements(By.id("com.sleepingpandaaa.bankingsystem:id/AccNum"));
@@ -119,6 +177,10 @@ public class AppObjects extends Utils{
 
 	 }
 
+
+
+	
+	
 
 }
 

@@ -7,7 +7,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebElement;
 
-import com.browserstack.BaseClass;
+import com.myBank.utility.BaseClass;
 import com.google.common.collect.ImmutableMap;
 
 import io.appium.java_client.AppiumBy;
@@ -37,4 +37,3 @@ public class Utils {
 		}
 	 }
 }	 	
-

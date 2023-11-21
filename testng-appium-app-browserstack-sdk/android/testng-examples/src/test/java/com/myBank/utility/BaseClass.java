@@ -1,4 +1,4 @@
-package com.browserstack;
+package com.myBank.utility;
 
 import java.io.IOException;
 import java.net.URL;
@@ -12,13 +12,14 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+
+import com.myBank.pages.AppObjects;
+import com.myBank.utility.Utils;
+
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
-
-import com.myBank.pages.AppObjects;
-import com.myBank.utility.Utils;
 
 
 public class BaseClass {
@@ -26,8 +27,7 @@ public class BaseClass {
 	protected AppObjects appObjects;
 	protected Utils utils;
 	
-	
-	
+
 	//local
 	//public String userName = "heralddelacruz_DjwAuz"; // heralddelacruz_DjwAuz
 	//public String accessKey = "GprQ3CPzVt9qb8F6pxpx";  // GprQ3CPzVt9qb8F6pxpx
@@ -67,6 +67,8 @@ public class BaseClass {
 
         driver = new AndroidDriver(new URL(URL), capabilities);
       	
+        appObjects = new AppObjects(driver);
+        utils = new Utils(driver);
     }
     
 	/*
@@ -78,7 +80,7 @@ public class BaseClass {
 	
     @AfterMethod(alwaysRun = true)
     public void tearDown() {
-    	System.out.print("Test Finish /n");
+    	System.out.print(" ");
     	driver.closeApp();
     	
     }
