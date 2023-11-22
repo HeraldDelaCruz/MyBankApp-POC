@@ -5,7 +5,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.remote.RemoteWebElement;
+
 
 import com.myBank.utility.BaseClass;
 import com.google.common.collect.ImmutableMap;
@@ -36,4 +36,19 @@ public class Utils {
 		   System.out.println("- - - - - - - - - - - - - - -");
 		}
 	 }
+	 
+		public static void scrollDown() throws InterruptedException {
+			((JavascriptExecutor) driver).executeScript("mobile: scrollGesture", ImmutableMap.of(
+				    "left", 100, "top", 450, "width", 200, "height", 950,
+				    "direction", "DOWN",
+				    "percent", 10
+				));
+		}
+	 
+		public static void scollToText(String text) {
+			driver.findElement(AppiumBy.androidUIAutomator(
+					"new UiScrollable(new UiSelector()).scrollIntoView(text(\""+text+"\"))"));
+			
+		}
+	 
 }	 	

@@ -57,7 +57,7 @@ public class BaseClass {
     	browserstackOptions.put("appiumVersion", "2.0.1");
     	capabilities.setCapability("bstack:options", browserstackOptions);
     	
-		//jenkins 
+		//jenkins config
 		capabilities.setCapability("deviceName", "Samsung Galaxy S21");
 		capabilities.setCapability("os_Version", "12.0");
 		capabilities.setCapability("Project","MyBank App:(POC) - Android"); 
@@ -78,7 +78,7 @@ public class BaseClass {
 	 */
     
 	
-    @AfterMethod(alwaysRun = true)
+	@AfterMethod(alwaysRun = true)
     public void tearDown() {
     	System.out.print(" ");
     	driver.closeApp();

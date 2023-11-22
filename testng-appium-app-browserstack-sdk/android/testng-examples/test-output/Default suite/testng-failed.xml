@@ -3,13 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.browserstack.ViewAcccount">
+      <class name="com.myBank.testdata.TestData">
         <methods>
-          <include name="tearDown"/>
-          <include name="viewAccount"/>
-          <include name="setUp"/>
+          <include name="readData"/>
         </methods>
-      </class> <!-- com.browserstack.ViewAcccount -->
+      </class> <!-- com.myBank.testdata.TestData -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

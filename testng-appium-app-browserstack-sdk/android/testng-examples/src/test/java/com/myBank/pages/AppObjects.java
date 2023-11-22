@@ -123,12 +123,12 @@ public class AppObjects extends Utils{
 	}
 	
 	public String getSenderName() {
-		WebElement senderNameElem = driver.findElement(By.xpath(".//*[contains(@text, 'Nikita')]"));
+		WebElement senderNameElem = driver.findElement(By.xpath(".//*[contains(@text, 'Customer Name: Nikita')]"));
 		return senderNameElem.getText();
 	}
 	
 	public String getReceiverName() {
-		WebElement receiverNameElem = driver.findElement(By.xpath(".//*[contains(@text, 'Shebon')]"));
+		WebElement receiverNameElem = driver.findElement(By.xpath(".//*[contains(@text, 'Customer Name: Shebon')]"));
 		return receiverNameElem.getText();
 	}
 	
@@ -152,12 +152,17 @@ public class AppObjects extends Utils{
         	System.out.println("- - - - - - - - - - - - - - -");
         	}
 		}	
-	
+		
 		
 	//get account number listed and log
 	public void getAccountNum()  {
 		List<WebElement> accountNum = driver.findElements(By.id("com.sleepingpandaaa.bankingsystem:id/CustName"));
 		List<WebElement> accountName = driver.findElements(By.id("com.sleepingpandaaa.bankingsystem:id/AccNum"));
+		
+		int accountCount = accountNum.size();
+		String accountCountstr = Integer.toString(accountCount);
+		
+		Reporter.log("number of accounts listed: " + accountCountstr);
 		
 		for (int i = 0; i < accountNum.size()-1 ; i++) {
 			WebElement accountNumbers = accountNum.get(i);
@@ -167,7 +172,7 @@ public class AppObjects extends Utils{
 			String accountNamess = accountNames.getText();
          
          
-			//System.out.println("Account number details : " + (i + 1) + " details: " + accountDetails);
+			//System.out.println("Account number details : " + (i + 1) + " details: " + accountDetails);	
 			Reporter.log("Account " + (i + 1) + " details : " + accountNamess + " " +accountDetails, true);
 	 	}
 

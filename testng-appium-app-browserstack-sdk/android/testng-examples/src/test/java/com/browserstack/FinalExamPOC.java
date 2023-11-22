@@ -27,7 +27,7 @@ public class FinalExamPOC extends BaseClass {
     	
     	//Step 3: Validate Banking System is displayed on Top
     	//appObjects.bankingSystemTextIsDisplayed();
-    	System.out.println("Verify Banking System text from top if Displayed:");
+    	System.out.println("Verify 'Banking System' text from header if Displayed:");
     	utils.assertTextIsDisplayed(appObjects.BankingSystemtxt);
     	
     	//Step 4: Log the number of account displayed in TestNg report.
@@ -44,7 +44,7 @@ public class FinalExamPOC extends BaseClass {
     	//Step 1: Launch MyBank app using .apk file.
     	//Step 2: Click on View accounts
     	//Step 3: Click on any of the one of the user 
-    	//Step 4: Validate below fields are displayed.
+    	//Step 4: Validate below fields are displayed. (enhancement add assert equals)
     	//    		Name 
     	//    		Account Number 
     	//    		Email id:
@@ -142,6 +142,7 @@ public class FinalExamPOC extends BaseClass {
     	System.out.println("Test case 4 Start");
 
     	//Step 3: Click on arrows on right side 
+    	System.out.println("Navigate Transaction History Page");
     	appObjects.clickOnElement(appObjects.History);
     	
     	//Step 4: Validate the transaction you did in Test case 03 is displayed. With success message
@@ -161,7 +162,7 @@ public class FinalExamPOC extends BaseClass {
     				 " is Displayed in Transaction History Page.");
     			 }
     	else {
-    		System.out.println("Transaction is NOT Displayed in Transaction History Page. ");
+    		System.out.println("Transaction is FAILED to Display in Transaction History Page. ");
     	}
     	    	
     	
