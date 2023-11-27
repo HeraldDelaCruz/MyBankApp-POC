@@ -1,10 +1,14 @@
 package com.browserstack;
 
+import org.apache.poi.xssf.usermodel.XSSFCell;
+import org.testng.Reporter;
 import org.testng.annotations.Test;
 
 import com.myBank.pages.AppObjects;
+import com.myBank.testdata.TestData;
 import com.myBank.utility.BaseClass;
 import com.myBank.utility.Utils;
+
 
 public class FinalExamPOC extends BaseClass {
 	
@@ -16,26 +20,18 @@ public class FinalExamPOC extends BaseClass {
     	//Step 3: Validate Banking System is displayed on Top
     	//Step 4: Log the number of account displayed in TestNg report.
     	
-    	System.out.println("    ");
-    	System.out.println("Test case 1 Start");
+    	Reporter.log("    ",true);
+    	Reporter.log("Test case 1 Start",true);
     	
-    	//Step 1: Launch MyBank app using .apk file.
     	utils.waitApptoLoad();
-    	
-    	//Step 2: Click on View accounts
     	appObjects.clickOnElement(appObjects.ViewAccountsBtn);
-    	
-    	//Step 3: Validate Banking System is displayed on Top
-    	//appObjects.bankingSystemTextIsDisplayed();
-    	System.out.println("Verify 'Banking System' text from header if Displayed:");
+    	Reporter.log("Verify 'Banking System' text from header if Displayed:",true);
     	utils.assertTextIsDisplayed(appObjects.BankingSystemtxt);
+    	Reporter.log("Get and log the accounts listed in the page:",true);
+    	appObjects.getAccountNum();    	
     	
-    	//Step 4: Log the number of account displayed in TestNg report.
-    	System.out.println("Get and log the accounts listed in the page:");
-    	appObjects.getAccountNum();
-    	
-    	System.out.println("Test case 1 : Finished");
-    	System.out.println("    ");
+    	Reporter.log("Test case 1 : Finished",true);
+    	Reporter.log("    ",true);
     }
     
     @Test
@@ -52,35 +48,29 @@ public class FinalExamPOC extends BaseClass {
     	//    		IFSC Code
     	//    		Current Balance 
     	
-    	System.out.println("    ");
-    	System.out.println("Test case 2 Start");
+    	Reporter.log("    ",true);
+    	Reporter.log("Test case 2 Start",true);
     	
-    	//Step 1: Launch MyBank app using .apk file.
     	utils.waitApptoLoad();
-    	
-    	//Step 2: Click on View accounts
     	appObjects.clickOnElement(appObjects.ViewAccountsBtn);
-    	
-    	//Step 3: Click on any of the one of the user : Nikita
-    	System.out.println("Navigate User: Nikita");
+    	Reporter.log("Navigate User: Nikita",true);
     	appObjects.clickOnElement(appObjects.NikitaAccountNum);
     	
-    	//Step 4: Validate below fields are displayed.
-    	System.out.println("Validate Data if displayed:");
+    	Reporter.log("Validate Data if displayed:",true);
     	utils.assertTextIsDisplayed(appObjects.Nikita_Name);
     	utils.assertTextIsDisplayed(appObjects.Nikita_AccountNum);
     	utils.assertTextIsDisplayed(appObjects.Nikita_Email);
     	utils.assertTextIsDisplayed(appObjects.Nikita_MobileNum);
-    	utils.assertTextIsDisplayed(appObjects.Nikita_ifsc);
+    	utils.assertTextIsDisplayed(appObjects.Nikita_IFSC);
     	utils.assertTextIsDisplayed(appObjects.Nikita_AccountBalance);
     	
-    	System.out.println("Test case 2 : Finished");
-    	System.out.println("    ");
+    	Reporter.log("Test case 2 : Finished",true);
+    	Reporter.log("    ",true);
     
     }
     
     @Test
-    public void myBank_03() {
+    public void myBank_03() throws Exception {
     	//MyBank_03
     	//Step 1: Launch MyBank app using .apk file.
     	//Step 2: Click on View accounts
@@ -92,83 +82,64 @@ public class FinalExamPOC extends BaseClass {
     	//Step 8: Select one of the user 
     	//Step 9: Validate Transaction successful message is displayed.
     	
-    	System.out.println("    ");
-    	System.out.println("Test case 3 Start");
+    	Reporter.log("    ",true);
+    	Reporter.log("Test case 3 Start",true);
     	
-    	//Step 1: Launch MyBank app using .apk file.
     	utils.waitApptoLoad();
-    	
-    	//Step 2: Click on View accounts
     	appObjects.clickOnElement(appObjects.ViewAccountsBtn);
-    	
-    	//Step 3: Click on any of the one of the user , User: Nikita
-    	System.out.println("Navigate User: Nikita as the Sender");
+    	Reporter.log("Navigate User: Nikita as the Sender",true);
     	appObjects.clickOnElement(appObjects.NikitaAccountNum);
-    	
-    	//Step 4: Click on Transfer money 
     	appObjects.clickOnElement(appObjects.TransferMoneyBtn);
-    	
-    	//Click on Enter amount 
-    	String amount = "500";
-    	System.out.println("Send money with amount:" +amount);
+
+    	//String amount = "500";
+    	String amount = testData.excelTestData(1, 5, 0);
+    	Reporter.log("Send money with amount:" + amount,true);
     	appObjects.sendkeys(amount);
-    	
-    	//Step7: Click on Send
     	appObjects.clickOnElement(appObjects.SendMoneyBtn);
-    	
-    	//Step 8: Select one of the user  , User: Shebon
-    	System.out.println("Navigate User: Shebon as the Receiver");
+    	Reporter.log("Navigate User: Shebon as the Receiver",true);
     	appObjects.clickOnElement(appObjects.ShebonAccountNum);
     	
-    	
-    	//Step 9: Validate Transaction successful message is displayed.
     	String toastMessage = appObjects.getToastMessage();
-    	
-    	//check toast message if correct
     	String expectedToastMessage = "Transaction Successful!";
         assert toastMessage.equals(expectedToastMessage) : "Toast message verification failed";
     	
         String senderName = appObjects.getSenderName().substring(15);
         String receiverName = appObjects.getReceiverName().substring(15);
         
-        System.out.println("Money from " +senderName+ " is sent to "+receiverName+" with amount of " + amount + " is transfered successfully");
+        Reporter.log("Money from " +senderName+ " is sent to "+receiverName+" with amount of " + amount + " is transfered successfully",true);
         
-    	System.out.println("Test case 3 : Finished");
-    	System.out.println("    ");
+        Reporter.log("Test case 3 : Finished",true);
+        Reporter.log("    ",true);
     	
-    	
-    	
-    	System.out.println("    ");
-    	System.out.println("Test case 4 Start");
+        Reporter.log("    ",true);
+        Reporter.log("Test case 4 Start",true);
 
-    	//Step 3: Click on arrows on right side 
-    	System.out.println("Navigate Transaction History Page");
+        Reporter.log("Navigate Transaction History Page",true);
     	appObjects.clickOnElement(appObjects.History);
     	
-    	//Step 4: Validate the transaction you did in Test case 03 is displayed. With success message
-    	String sender = appObjects.getSender();
+        String sender = appObjects.getSender();
     	String receiver = appObjects.getReceiver();
     	String moneySent = appObjects.moneySent();
     	String transferStatus = appObjects.transferStatus();
-    
     	
-    	if(sender.equalsIgnoreCase("Nikita") && 
-    	   receiver.equalsIgnoreCase("Shebon") &&
-    	   moneySent.equalsIgnoreCase("500.00") &&
+    	String Nikita = testData.excelTestData(0, 5, 0);
+    	String Shebon = testData.excelTestData(0, 3, 0);
+    	if(sender.equalsIgnoreCase(Nikita) && 
+    	   receiver.equalsIgnoreCase(Shebon) &&
+    	   moneySent.equalsIgnoreCase(amount) &&
     	   transferStatus.equalsIgnoreCase("Success")
     			  )
     			 {
-    		System.out.println("Transaction : Money with amount of " +moneySent+ " from " +sender+ " that sent to " +receiver+
-    				 " is Displayed in Transaction History Page.");
+    		Reporter.log("Transaction : Money with amount of " +moneySent+ " from " +sender+ " that sent to " +receiver+
+    				 " is Displayed in Transaction History Page.",true);
     			 }
     	else {
-    		System.out.println("Transaction is FAILED to Display in Transaction History Page. ");
+    		Reporter.log("Transaction is FAILED to Display in Transaction History Page. ",true);
     	}
-    	    	
-    	
-    	System.out.println("Test case 4 : Finished");
-    	System.out.println("    ");
-    	//git commit
+    	    	    	
+    	Reporter.log("Test case 4 : Finished",true);
+    	Reporter.log("    ",true);
+
     }	
      
     

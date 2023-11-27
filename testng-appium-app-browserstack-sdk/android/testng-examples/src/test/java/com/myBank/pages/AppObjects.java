@@ -2,6 +2,7 @@ package com.myBank.pages;
 
 import java.util.List;
 
+import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -26,12 +27,10 @@ public class AppObjects extends Utils{
 		PageFactory.initElements(new AppiumFieldDecorator(driver), this);
 	}
 	
-
 	//page objects
 	@AndroidFindBy(id="com.sleepingpandaaa.bankingsystem:id/btnViewUsers")
 	public WebElement ViewAccountsBtn;
 	
-	String expectedText = "Banking System";
 	@AndroidFindBy(xpath=".//*[contains(@text, 'Banking System')]")
 	public WebElement BankingSystemtxt;
 	
@@ -49,7 +48,7 @@ public class AppObjects extends Utils{
 	@AndroidFindBy(id="com.sleepingpandaaa.bankingsystem:id/account_no")
 	public WebElement Nikita_MobileNum;
 	@AndroidFindBy(id="com.sleepingpandaaa.bankingsystem:id/ifsc_code")
-	public WebElement Nikita_ifsc;
+	public WebElement Nikita_IFSC;
 	@AndroidFindBy(id="com.sleepingpandaaa.bankingsystem:id/AccBal")
 	public WebElement Nikita_AccountBalance;
 	
@@ -66,8 +65,8 @@ public class AppObjects extends Utils{
 	@AndroidFindBy(id="android:id/button2")
 	public WebElement CancelBtn;
 	
-	//@AndroidFindBy(className ="android.widget.Toast")
-	//public WebElement ToastMessage;
+	@AndroidFindBy(className ="android.widget.Toast")
+	public WebElement ToastMessage;
 	
 	@AndroidFindBy(xpath=".//*[contains(@text, '9111234562567')]")
 	public WebElement ShebonAccountNum;
@@ -136,33 +135,32 @@ public class AppObjects extends Utils{
 	public void sendkeys(String str) {
 		AmountField.sendKeys(str);
 	}
+	
 
 	
 	//get banking system text and check if displayed
-	public void bankingSystemTextIsDisplayed () {
-		String actualText = BankingSystemtxt.getText();
-        if (actualText.equals(expectedText)) {
-        	System.out.println("Text validation passed. Expected: " + expectedText + ", Actual: " + actualText);
-        	//Reporter.log("Text validation passed. Expected: " + expectedText + ", Actual: " + actualText);
-        	System.out.println("- - - - - - - - - - - - - - -");
-        	} 
-        else {
-        	System.out.println("Text validation failed. Expected: " + expectedText + ", Actual: " + actualText);
-        	//Reporter.log("Text validation failed. Expected: " + expectedText + ", Actual: " + actualText);
-        	System.out.println("- - - - - - - - - - - - - - -");
-        	}
-		}	
-		
+	/*
+	 * public void bankingSystemTextIsDisplayed () { String actualText =
+	 * BankingSystemtxt.getText(); if (actualText.equals(expectedText)) {
+	 * System.out.println("Text validation passed. Expected: " + expectedText +
+	 * ", Actual: " + actualText);
+	 * //Reporter.log("Text validation passed. Expected: " + expectedText +
+	 * ", Actual: " + actualText);
+	 * System.out.println("- - - - - - - - - - - - - - -"); } else {
+	 * System.out.println("Text validation failed. Expected: " + expectedText +
+	 * ", Actual: " + actualText);
+	 * //Reporter.log("Text validation failed. Expected: " + expectedText +
+	 * ", Actual: " + actualText);
+	 * System.out.println("- - - - - - - - - - - - - - -"); } }
+	 */	
 		
 	//get account number listed and log
 	public void getAccountNum()  {
 		List<WebElement> accountNum = driver.findElements(By.id("com.sleepingpandaaa.bankingsystem:id/CustName"));
 		List<WebElement> accountName = driver.findElements(By.id("com.sleepingpandaaa.bankingsystem:id/AccNum"));
 		
-		int accountCount = accountNum.size();
+		int accountCount = accountNum.size()-1;
 		String accountCountstr = Integer.toString(accountCount);
-		
-		Reporter.log("number of accounts listed: " + accountCountstr);
 		
 		for (int i = 0; i < accountNum.size()-1 ; i++) {
 			WebElement accountNumbers = accountNum.get(i);
@@ -171,17 +169,13 @@ public class AppObjects extends Utils{
 			WebElement accountNames = accountName.get(i);
 			String accountNamess = accountNames.getText();
          
-         
 			//System.out.println("Account number details : " + (i + 1) + " details: " + accountDetails);	
 			Reporter.log("Account " + (i + 1) + " details : " + accountNamess + " " +accountDetails, true);
 	 	}
-
+		
+		//System.out.println("number of accounts listed: " + accountCountstr);
+		Reporter.log("number of accounts listed: " + accountCountstr, true);
 	 }
-
-
-
-	
-	
 
 }
 

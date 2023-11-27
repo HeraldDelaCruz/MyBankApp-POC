@@ -5,7 +5,7 @@
     <classes>
       <class name="com.myBank.testdata.TestData">
         <methods>
-          <include name="readData"/>
+          <include name="testthedata"/>
         </methods>
       </class> <!-- com.myBank.testdata.TestData -->
     </classes>

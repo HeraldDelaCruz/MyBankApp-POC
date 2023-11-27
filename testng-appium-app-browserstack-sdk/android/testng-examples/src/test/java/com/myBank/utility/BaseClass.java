@@ -1,6 +1,5 @@
 package com.myBank.utility;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.HashMap;
 
@@ -14,6 +13,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import com.myBank.pages.AppObjects;
+import com.myBank.testdata.TestData;
 import com.myBank.utility.Utils;
 
 import org.testng.annotations.BeforeMethod;
@@ -26,8 +26,8 @@ public class BaseClass {
 	protected AndroidDriver driver;
 	protected AppObjects appObjects;
 	protected Utils utils;
+	protected TestData testData;
 	
-
 	//local
 	//public String userName = "heralddelacruz_DjwAuz"; // heralddelacruz_DjwAuz
 	//public String accessKey = "GprQ3CPzVt9qb8F6pxpx";  // GprQ3CPzVt9qb8F6pxpx
@@ -44,13 +44,11 @@ public class BaseClass {
 	//static String browserstackLocal = System.getenv("BROWSERSTACK_LOCAL"); 
 	//static String browserstackLocalIdentifier = System.getenv("BROWSERSTACK_LOCAL_IDENTIFIER");
   
-	
     public static String URL = "http://" + userName + ":" + accessKey + "@hub-cloud.browserstack.com/wd/hub";
 		
     @BeforeMethod(alwaysRun = true)
-    public void setUp() throws IOException {
+    public void setUp() throws Exception {
     	 
-    	
     	MutableCapabilities capabilities = new UiAutomator2Options();
     	
     	HashMap<String, Object> browserstackOptions = new HashMap<String, Object>();
@@ -69,6 +67,9 @@ public class BaseClass {
       	
         appObjects = new AppObjects(driver);
         utils = new Utils(driver);
+        testData = new TestData();
+        
+       
     }
     
 	/*
@@ -80,8 +81,8 @@ public class BaseClass {
 	
 	@AfterMethod(alwaysRun = true)
     public void tearDown() {
-    	System.out.print(" ");
-    	driver.closeApp();
+    	Reporter.log(" ",true);
+    	driver.quit();
     	
     }
 }

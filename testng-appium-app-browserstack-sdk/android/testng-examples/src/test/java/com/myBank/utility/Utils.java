@@ -5,7 +5,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
-
+import org.testng.Reporter;
 
 import com.myBank.utility.BaseClass;
 import com.google.common.collect.ImmutableMap;
@@ -30,10 +30,11 @@ public class Utils {
 	 public void assertTextIsDisplayed(WebElement element) {
 		{
 		   String actualText = element.getText();
-		   assert element.isDisplayed() : element + " is not displayed on the page /r /n - - - - - - - - - - - - - - -";
+		   assert element.isDisplayed() : element + " is not displayed on the page  - - - "
+		   		+ "- - - - - - - - - - - -";
 		   
-		   System.out.println( actualText + " Text is displayed on the on the page");
-		   System.out.println("- - - - - - - - - - - - - - -");
+		   Reporter.log( actualText + " Text is displayed on the on the page",true);
+		   Reporter.log("- - - - - - - - - - - - - - -",true);
 		}
 	 }
 	 
