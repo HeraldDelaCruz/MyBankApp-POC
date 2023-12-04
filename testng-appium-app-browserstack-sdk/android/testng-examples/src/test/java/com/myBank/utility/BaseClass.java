@@ -1,6 +1,7 @@
 package com.myBank.utility;
 
 import java.net.URL;
+import java.time.Duration;
 import java.util.HashMap;
 
 import org.openqa.selenium.MutableCapabilities;
@@ -11,7 +12,10 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
+import com.myBank.methods.HomePageMethods;
+import com.myBank.methods.UserDetailsPageMethods;
 import com.myBank.pages.AppObjects;
 import com.myBank.testdata.TestData;
 import com.myBank.utility.Utils;
@@ -23,29 +27,23 @@ import io.appium.java_client.android.options.UiAutomator2Options;
 
 
 public class BaseClass {
-	protected AndroidDriver driver;
-	protected AppObjects appObjects;
-	protected Utils utils;
-	protected TestData testData;
+	protected static AndroidDriver driver;
+	protected static AppObjects appObjects;
+	protected static HomePageMethods homePageMethods;
+	protected static Utils utils;
+	protected static TestData testData;
+	protected static UserDetailsPageMethods userDetailsPageMethods;
 	
-	//local
-	//public String userName = "heralddelacruz_DjwAuz"; // heralddelacruz_DjwAuz
-	//public String accessKey = "GprQ3CPzVt9qb8F6pxpx";  // GprQ3CPzVt9qb8F6pxpx
-	//public String buildName_myBank = "H local run";
-	//public String app_myBank = "bs://dfc767e8d4ff36dd63883d8439be773df5c5937d";
+	protected static SoftAssert softAssert;
 	
 	//jenkins config
-	public static String userName = System.getenv("BROWSERSTACK_USERNAME"); // heralddelacruz_DjwAuz
-	public static String accessKey = System.getenv("BROWSERSTACK_ACCESSKEY");  // GprQ3CPzVt9qb8F6pxpx
-	public static String buildName_myBank = System.getenv("BROWSERSTACK_BUILD_NAME"); 
-	public static String app_myBank = System.getenv("BROWSERSTACK_APP_ID_myBank"); 
-	//mybank : bs://dfc767e8d4ff36dd63883d8439be773df5c5937d
+	public static String userName = "heralddelacruz_DjwAuz"; 
+	public static String accessKey ="GprQ3CPzVt9qb8F6pxpx";  
+	public static String buildName_myBank = "BROWSERSTACK_BUILD_NAME";
+	public static String app_myBank = "bs://dfc767e8d4ff36dd63883d8439be773df5c5937d";
 	
-	//static String browserstackLocal = System.getenv("BROWSERSTACK_LOCAL"); 
-	//static String browserstackLocalIdentifier = System.getenv("BROWSERSTACK_LOCAL_IDENTIFIER");
-  
     public static String URL = "http://" + userName + ":" + accessKey + "@hub-cloud.browserstack.com/wd/hub";
-		
+	//public static String URL = "http://127.0.0.1:4723@hub-cloud.browserstack.com/wd/hub";
     @BeforeMethod(alwaysRun = true)
     public void setUp() throws Exception {
     	 
@@ -56,8 +54,8 @@ public class BaseClass {
     	capabilities.setCapability("bstack:options", browserstackOptions);
     	
 		//jenkins config
-		capabilities.setCapability("deviceName", "Samsung Galaxy S21");
-		capabilities.setCapability("os_Version", "12.0");
+		capabilities.setCapability("deviceName", "Google Pixel 6 Pro");
+		capabilities.setCapability("os_Version", "14.0");
 		capabilities.setCapability("Project","MyBank App:(POC) - Android"); 
 		capabilities.setCapability("build", buildName_myBank); 
 		capabilities.setCapability("name", buildName_myBank);
@@ -66,11 +64,17 @@ public class BaseClass {
         driver = new AndroidDriver(new URL(URL), capabilities);
       	
         appObjects = new AppObjects(driver);
-        utils = new Utils(driver);
-        testData = new TestData();
         
-       
+        homePageMethods = new HomePageMethods(driver);
+        userDetailsPageMethods = new UserDetailsPageMethods(driver);
+        
+        utils = new Utils(driver);
+
+        testData = new TestData();
+        softAssert = new SoftAssert();
+        
     }
+    
     
 	/*
 	 * @Test public void testPassed () { System.out.print("test integration pass");
@@ -81,6 +85,8 @@ public class BaseClass {
 	
 	@AfterMethod(alwaysRun = true)
     public void tearDown() {
+		softAssert.assertAll();
+
     	Reporter.log(" ",true);
     	driver.quit();
     	

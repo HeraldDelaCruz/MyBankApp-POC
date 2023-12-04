@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Default test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>1/0/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>3/0/0</td>
 </tr><tr>
-<td>Started on:</td><td>Mon Nov 27 17:21:28 SGT 2023</td>
+<td>Started on:</td><td>Mon Dec 04 11:53:09 SGT 2023</td>
 </tr>
-<tr><td>Total time:</td><td>0 seconds (360 ms)</td>
+<tr><td>Total time:</td><td>116 seconds (116238 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -75,10 +75,96 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='com.myBank.testdata.TestData.getdata()'><b>getdata</b><br>Test class: com.myBank.testdata.TestData</td>
+<td title='com.browserstack.FinalExamPOC.myBank_02()'><b>myBank_02</b><br>Test class: com.browserstack.FinalExamPOC<br/>
+<a href="#Output-641980258" onClick='toggleBox("Output-641980258", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-641980258" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-641980258">
+    <br/>
+Test case 2 Start<br/>
+Navigate View Accounts Page<br/>
+View Account was clicked<br/>
+Navigate User: Shebon<br/>
+Shebon was clicked<br/>
+Validate Users details field if displayed:<br/>
+Field Name: with data Shebon is Displayed<br/>
+Field Account Number : with data 9111234562567 is Displayed<br/>
+Field Email Id : with data karen99@gmail.com is Displayed<br/>
+Field Mobile Number : with data 1234567895 is Displayed<br/>
+Field IFSC Code with data CAB54321098 is Displayed<br/>
+Field Current balance : with data 945.16 is Displayed<br/>
+Test case 2 : Finished<br/>
+    <br/>
+</div>
+</td>
 <td></td>
-<td>0</td>
-<td>com.myBank.testdata.TestData@535779e4</td></tr>
+<td>16</td>
+<td>com.browserstack.FinalExamPOC@eda25e5</td></tr>
+<tr>
+<td title='com.browserstack.FinalExamPOC.myBank_01()'><b>myBank_01</b><br>Test class: com.browserstack.FinalExamPOC<br/>
+<a href="#Output-168776700" onClick='toggleBox("Output-168776700", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-168776700" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-168776700">
+    <br/>
+Test case 1 Start<br/>
+Navigate View Accounts Page<br/>
+View Account was clicked<br/>
+Verify 'Banking System' text from header if Displayed:<br/>
+Banking System text is displayed<br/>
+PASSED : Text is at the correct position<br/>
+Get and log the accounts listed in the page:<br/>
+PASSED : Account 1 details : Account Number: 9111234561644 Customer Name: Cyril<br/>
+PASSED : Account 2 details : Account Number: 9111234562463 Customer Name: Neomi<br/>
+PASSED : Account 3 details : Account Number: 9111234562567 Customer Name: Shebon<br/>
+PASSED : Account 4 details : Account Number: 9111234562685 Customer Name: Chandichen<br/>
+PASSED : Account 5 details : Account Number: 9111234563473 Customer Name: Nikita<br/>
+PASSED : Account 6 details : Account Number: 9111234563567 Customer Name: Chandni<br/>
+PASSED : Account 7 details : Account Number: 9111234563573 Customer Name: Alka<br/>
+PASSED : Account 8 details : Account Number: 9111234563664 Customer Name: Athul<br/>
+PASSED : number of accounts listed: 8<br/>
+Test case 1 : Finished<br/>
+    <br/>
+</div>
+</td>
+<td></td>
+<td>10</td>
+<td>com.browserstack.FinalExamPOC@eda25e5</td></tr>
+<tr>
+<td title='com.browserstack.FinalExamPOC.myBank_03()'><b>myBank_03</b><br>Test class: com.browserstack.FinalExamPOC<br/>
+<a href="#Output-776178157" onClick='toggleBox("Output-776178157", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-776178157" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-776178157">
+    <br/>
+Test case 3 Start<br/>
+Navigate View Accounts Page<br/>
+View Account was clicked<br/>
+Navigate User: Nikita as Sender<br/>
+Nikita was clicked<br/>
+Processing Transfer of Money<br/>
+Transfer Money was clicked<br/>
+Send money with amount:500.0<br/>
+Send Money was clicked<br/>
+Navigate User: Shebon as the Receiver<br/>
+Shebon was clicked<br/>
+Toast message verified<br/>
+Money from Nikita is sent to Shebon with amount of 500.0 is transfered successfully<br/>
+Test case 3 : Finished<br/>
+    <br/>
+    <br/>
+Test case 4 Start<br/>
+Navigate Transaction History Page<br/>
+History was clicked<br/>
+Checking Transaction History Page<br/>
+Transaction : Money with amount of 500.00 from Nikita that sent to Shebon is Displayed in Transaction History Page.<br/>
+Test case 4 : Finished<br/>
+    <br/>
+</div>
+</td>
+<td></td>
+<td>18</td>
+<td>com.browserstack.FinalExamPOC@eda25e5</td></tr>
 </table><p>
 </body>
 </html>
