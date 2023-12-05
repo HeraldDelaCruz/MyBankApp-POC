@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="First">
-    <test name="FirstTest">
+<suite name="My Bank Test Suite">
+    <test name="My Bank Test ">
         <classes>
-            <class name="com.browserstack.FinalExamPOC"/>
-            
+            <class name="com.browserstack.FinalExamPOC_MyBank_01"/>
+            <class name="com.browserstack.FinalExamPOC_MyBank_02"/>
+            <class name="com.browserstack.FinalExamPOC_MyBank_03"/>
         </classes>
     </test>
 </suite>

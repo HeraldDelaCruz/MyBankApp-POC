@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [My Bank Test Suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="My Bank Test (failed)">
+    <classes>
+      <class name="com.browserstack.FinalExamPOC_MyBank_03">
+        <methods>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+          <include name="myBank_03"/>
+        </methods>
+      </class> <!-- com.browserstack.FinalExamPOC_MyBank_03 -->
+      <class name="com.browserstack.FinalExamPOC_MyBank_02">
+        <methods>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+          <include name="myBank_02"/>
+        </methods>
+      </class> <!-- com.browserstack.FinalExamPOC_MyBank_02 -->
+      <class name="com.browserstack.FinalExamPOC_MyBank_01">
+        <methods>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+          <include name="myBank_01"/>
+        </methods>
+      </class> <!-- com.browserstack.FinalExamPOC_MyBank_01 -->
+    </classes>
+  </test> <!-- My Bank Test (failed) -->
+</suite> <!-- Failed suite [My Bank Test Suite] -->

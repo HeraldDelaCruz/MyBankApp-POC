@@ -51,7 +51,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
-                    <span>C:\Users\COLLABERA.DIGITAL\AppData\Local\Temp\testng-eclipse-466672897\testng-customsuite.xml</span>
+                    <span>C:\Users\COLLABERA.DIGITAL\AppData\Local\Temp\testng-eclipse--1068978727\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -93,7 +93,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">3 methods,   3 passed</span>
+                    <span class="method-stats">1 method,   1 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -104,17 +104,7 @@
                     <div class="method-list-content passed suite-Default_suite">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.browserstack.FinalExamPOC" class="method navigator-link" hash-for-method="myBank_01">myBank_01</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.browserstack.FinalExamPOC" class="method navigator-link" hash-for-method="myBank_02">myBank_02</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.browserstack.FinalExamPOC" class="method navigator-link" hash-for-method="myBank_03">myBank_03</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="com.browserstack.FinalExamPOC_MyBank_03" class="method navigator-link" hash-for-method="myBank_03">myBank_03</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Default_suite -->
@@ -132,23 +122,9 @@
           <div class="suite-Default_suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
-              <span class="class-name">com.browserstack.FinalExamPOC</span>
+              <span class="class-name">com.browserstack.FinalExamPOC_MyBank_03</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
-              <div class="method">
-                <div class="method-content">
-                  <a name="myBank_01">
-                  </a> <!-- myBank_01 -->
-                  <span class="method-name">myBank_01</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="myBank_02">
-                  </a> <!-- myBank_02 -->
-                  <span class="method-name">myBank_02</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
                   <a name="myBank_03">
@@ -161,7 +137,7 @@
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\COLLABERA.DIGITAL\AppData\Local\Temp\testng-eclipse-466672897\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\COLLABERA.DIGITAL\AppData\Local\Temp\testng-eclipse--1068978727\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -170,7 +146,11 @@
 &lt;suite name=&quot;Default suite&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;Default test&quot; verbose=&quot;2&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;com.browserstack.FinalExamPOC&quot;/&gt;
+      &lt;class name=&quot;com.browserstack.FinalExamPOC_MyBank_03&quot;&gt;
+        &lt;methods&gt;
+          &lt;include name=&quot;myBank_03&quot;/&gt;
+        &lt;/methods&gt;
+      &lt;/class&gt; &lt;!-- com.browserstack.FinalExamPOC_MyBank_03 --&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Default test --&gt;
 &lt;/suite&gt; &lt;!-- Default suite --&gt;
@@ -210,24 +190,16 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(3);
+data.addRows(1);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'myBank_03')
-data.setCell(0, 2, 'com.browserstack.FinalExamPOC')
-data.setCell(0, 3, 18006);
-data.setCell(1, 0, 1)
-data.setCell(1, 1, 'myBank_02')
-data.setCell(1, 2, 'com.browserstack.FinalExamPOC')
-data.setCell(1, 3, 16361);
-data.setCell(2, 0, 2)
-data.setCell(2, 1, 'myBank_01')
-data.setCell(2, 2, 'com.browserstack.FinalExamPOC')
-data.setCell(2, 3, 10205);
+data.setCell(0, 2, 'com.browserstack.FinalExamPOC_MyBank_03')
+data.setCell(0, 3, 17956);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 44 seconds</span>
+              <span class="suite-total-time">Total running time: 17 seconds</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -239,74 +211,34 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="reporter-method-div">
-              <span class="reporter-method-name">myBank_02</span>
-              <div class="reporter-method-output-div">
-                <span class="reporter-method-output">    </span>
-                <span class="reporter-method-output">Test case 2 Start</span>
-                <span class="reporter-method-output">Navigate View Accounts Page</span>
-                <span class="reporter-method-output">View Account was clicked</span>
-                <span class="reporter-method-output">Navigate User: Shebon</span>
-                <span class="reporter-method-output">Shebon was clicked</span>
-                <span class="reporter-method-output">Validate Users details field if displayed:</span>
-                <span class="reporter-method-output">Field Name: with data Shebon is Displayed</span>
-                <span class="reporter-method-output">Field Account Number : with data 9111234562567 is Displayed</span>
-                <span class="reporter-method-output">Field Email Id : with data karen99@gmail.com is Displayed</span>
-                <span class="reporter-method-output">Field Mobile Number : with data 1234567895 is Displayed</span>
-                <span class="reporter-method-output">Field IFSC Code with data CAB54321098 is Displayed</span>
-                <span class="reporter-method-output">Field Current balance : with data 945.16 is Displayed</span>
-                <span class="reporter-method-output">Test case 2 : Finished</span>
-                <span class="reporter-method-output">    </span>
-              </div> <!-- reporter-method-output-div -->
-            </div> <!-- reporter-method-div -->
-            <div class="reporter-method-div">
-              <span class="reporter-method-name">myBank_01</span>
-              <div class="reporter-method-output-div">
-                <span class="reporter-method-output">    </span>
-                <span class="reporter-method-output">Test case 1 Start</span>
-                <span class="reporter-method-output">Navigate View Accounts Page</span>
-                <span class="reporter-method-output">View Account was clicked</span>
-                <span class="reporter-method-output">Verify 'Banking System' text from header if Displayed:</span>
-                <span class="reporter-method-output">Banking System text is displayed</span>
-                <span class="reporter-method-output">PASSED : Text is at the correct position</span>
-                <span class="reporter-method-output">Get and log the accounts listed in the page:</span>
-                <span class="reporter-method-output">PASSED : Account 1 details : Account Number: 9111234561644 Customer Name: Cyril</span>
-                <span class="reporter-method-output">PASSED : Account 2 details : Account Number: 9111234562463 Customer Name: Neomi</span>
-                <span class="reporter-method-output">PASSED : Account 3 details : Account Number: 9111234562567 Customer Name: Shebon</span>
-                <span class="reporter-method-output">PASSED : Account 4 details : Account Number: 9111234562685 Customer Name: Chandichen</span>
-                <span class="reporter-method-output">PASSED : Account 5 details : Account Number: 9111234563473 Customer Name: Nikita</span>
-                <span class="reporter-method-output">PASSED : Account 6 details : Account Number: 9111234563567 Customer Name: Chandni</span>
-                <span class="reporter-method-output">PASSED : Account 7 details : Account Number: 9111234563573 Customer Name: Alka</span>
-                <span class="reporter-method-output">PASSED : Account 8 details : Account Number: 9111234563664 Customer Name: Athul</span>
-                <span class="reporter-method-output">PASSED : number of accounts listed: 8</span>
-                <span class="reporter-method-output">Test case 1 : Finished</span>
-                <span class="reporter-method-output">    </span>
-              </div> <!-- reporter-method-output-div -->
-            </div> <!-- reporter-method-div -->
-            <div class="reporter-method-div">
               <span class="reporter-method-name">myBank_03</span>
               <div class="reporter-method-output-div">
                 <span class="reporter-method-output">    </span>
                 <span class="reporter-method-output">Test case 3 Start</span>
                 <span class="reporter-method-output">Navigate View Accounts Page</span>
-                <span class="reporter-method-output">View Account was clicked</span>
+                <span class="reporter-method-output"> - PASSED : View Account was clicked</span>
                 <span class="reporter-method-output">Navigate User: Nikita as Sender</span>
-                <span class="reporter-method-output">Nikita was clicked</span>
+                <span class="reporter-method-output"> - PASSED : Nikita was clicked</span>
                 <span class="reporter-method-output">Processing Transfer of Money</span>
-                <span class="reporter-method-output">Transfer Money was clicked</span>
-                <span class="reporter-method-output">Send money with amount:500.0</span>
-                <span class="reporter-method-output">Send Money was clicked</span>
-                <span class="reporter-method-output">Navigate User: Shebon as the Receiver</span>
-                <span class="reporter-method-output">Shebon was clicked</span>
-                <span class="reporter-method-output">Toast message verified</span>
-                <span class="reporter-method-output">Money from Nikita is sent to Shebon with amount of 500.0 is transfered successfully</span>
+                <span class="reporter-method-output"> - PASSED : Transfer Money was clicked</span>
+                <span class="reporter-method-output"> - PASSED : Send money with amount:500.0</span>
+                <span class="reporter-method-output"> - PASSED : Send Money was clicked</span>
+                <span class="reporter-method-output"> - PASSED : Navigate User: Shebon as the Receiver</span>
+                <span class="reporter-method-output"> - PASSED : Shebon was clicked</span>
+                <span class="reporter-method-output"> - PASSED : Toast message verified</span>
+                <span class="reporter-method-output"> - PASSED : Money from Nikita is sent to Shebon with amount of 500.0 is transfered successfully</span>
                 <span class="reporter-method-output">Test case 3 : Finished</span>
                 <span class="reporter-method-output">    </span>
                 <span class="reporter-method-output">    </span>
                 <span class="reporter-method-output">Test case 4 Start</span>
                 <span class="reporter-method-output">Navigate Transaction History Page</span>
-                <span class="reporter-method-output">History was clicked</span>
+                <span class="reporter-method-output"> - PASSED : History was clicked</span>
                 <span class="reporter-method-output">Checking Transaction History Page</span>
-                <span class="reporter-method-output">Transaction : Money with amount of 500.00 from Nikita that sent to Shebon is Displayed in Transaction History Page.</span>
+                <span class="reporter-method-output"> Sender  : Nikita</span>
+                <span class="reporter-method-output"> Receiver  : Shebon</span>
+                <span class="reporter-method-output"> Amount  : 500.00</span>
+                <span class="reporter-method-output"> Status : Success</span>
+                <span class="reporter-method-output"> - PASSED : Transaction : Money with amount of 500.00 from Nikita that sent to Shebon is Displayed in Transaction History Page.</span>
                 <span class="reporter-method-output">Test case 4 : Finished</span>
                 <span class="reporter-method-output">    </span>
               </div> <!-- reporter-method-output-div -->
@@ -326,42 +258,18 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">com.browserstack.FinalExamPOC</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">com.browserstack.FinalExamPOC_MyBank_03</div> <!-- chronological-class-name -->
               <div class="configuration-method before">
                 <span class="method-name">setUp</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">myBank_01</span>
-                <span class="method-start">22939 ms</span>
-              </div> <!-- test-method -->
-              <div class="configuration-method after">
-                <span class="method-name">tearDown</span>
-                <span class="method-start">33148 ms</span>
-              </div> <!-- configuration-method after -->
-              <div class="configuration-method before">
-                <span class="method-name">setUp</span>
-                <span class="method-start">34683 ms</span>
-              </div> <!-- configuration-method before -->
-              <div class="test-method">
-                <span class="method-name">myBank_02</span>
-                <span class="method-start">56923 ms</span>
-              </div> <!-- test-method -->
-              <div class="configuration-method after">
-                <span class="method-name">tearDown</span>
-                <span class="method-start">73288 ms</span>
-              </div> <!-- configuration-method after -->
-              <div class="configuration-method before">
-                <span class="method-name">setUp</span>
-                <span class="method-start">74821 ms</span>
-              </div> <!-- configuration-method before -->
-              <div class="test-method">
                 <span class="method-name">myBank_03</span>
-                <span class="method-start">96752 ms</span>
+                <span class="method-start">20535 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">114760 ms</span>
+                <span class="method-start">38495 ms</span>
               </div> <!-- configuration-method after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

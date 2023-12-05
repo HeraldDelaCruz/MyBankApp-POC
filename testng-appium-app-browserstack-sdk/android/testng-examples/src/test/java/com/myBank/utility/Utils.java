@@ -1,35 +1,22 @@
 package com.myBank.utility;
 
-import static org.junit.Assert.fail;
-
-import java.time.Duration;
-import java.util.List;
-import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 
-import org.testng.Assert;
 import org.testng.Reporter;
-import org.testng.asserts.SoftAssert;
-import com.myBank.utility.BaseClass;
-
 import com.google.common.collect.ImmutableMap;
 
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.pagefactory.AndroidFindBy;
-
-import com.myBank.pages.*;
 
 public class Utils extends BaseClass{
 	static AndroidDriver driver;
 	
 	public Utils(AndroidDriver driver) {
-		this.driver = driver;
+		Utils.driver = driver;
 		
 	}
 	
@@ -50,7 +37,8 @@ public class Utils extends BaseClass{
 				isClicked = true;
 			}
 			catch(NoSuchElementException e) {
-				Reporter.log("Element not displayed",true);
+				Reporter.log(" - FAILED : "+element[2]+"Element is NOT displayed",true);
+				softAssert.fail(" - FAILED : "+element[2]+" Element is NOT displayed");
 			}
 			}
 			
@@ -62,7 +50,8 @@ public class Utils extends BaseClass{
 				isClicked = true;
 			}
 			catch(NoSuchElementException e) {
-				Reporter.log("Element not displayed",true);
+				Reporter.log(" - FAILED : "+element[2]+" Element is NOT displayed",true);
+				softAssert.fail(" - FAILED : "+element[2]+" Element is NOT displayed");
 			}
 			}
 		
@@ -73,17 +62,18 @@ public class Utils extends BaseClass{
 				isClicked = true;
 			}
 			catch(NoSuchElementException e) {
-				Reporter.log("Element not displayed",true);
+				Reporter.log(" - FAILED : "+element[2]+" Element is NOT displayed",true);
+				softAssert.fail(" - FAILED : "+element[2]+" Element is NOT displayed");
 			}
 			}
 		
 		if (isClicked == true) {
-			Reporter.log(element[2] + " was clicked",true);
+			Reporter.log(" - PASSED : " + element[2] + " was clicked",true);
 			}
 		
 		else {
-			Reporter.log(element[2] + " was NOT clicked",true);
-			softAssert.fail(element[2] + " was NOT clicked");
+			Reporter.log(" - FAILED : " + element[2] + " was NOT clicked",true);
+			softAssert.fail(" - FAILED : " + element[2] + " was NOT clicked");
 		}
 	}
 	
@@ -99,8 +89,8 @@ public class Utils extends BaseClass{
 				isDisplayed = true;
 				}
 			catch (NoSuchElementException e) {
-				Reporter.log("Element is not displayed",true);
-				
+				Reporter.log(" - FAILED : "+element[2]+" Element is NOT displayed",true);
+				softAssert.fail(" - FAILED : "+element[2]+" Element is NOT displayed");
 			}
 		}
 		
@@ -110,7 +100,8 @@ public class Utils extends BaseClass{
 				isDisplayed = true;
 				}
 			catch (NoSuchElementException e) {
-				Reporter.log("Element is not displayed",true);
+				Reporter.log(" - FAILED : "+element[2]+" Element is NOT displayed",true);
+				softAssert.fail(" - FAILED : "+element[2]+" Element is NOT displayed");
 				
 			}
 		}
@@ -120,16 +111,17 @@ public class Utils extends BaseClass{
 				isDisplayed = true;
 				}
 			catch (NoSuchElementException e) {
-				Reporter.log("Element is not displayed",true);
+				Reporter.log(" - FAILED : "+element[2]+" Element is NOT displayed",true);
+				softAssert.fail(" - FAILED : "+element[2]+" Element is NOT displayed");
 		}
 			
 		if (isDisplayed == true) {
-			Reporter.log(element[2] + " text is displayed",true);
+			Reporter.log(" - PASSED : " + element[2] + " text is displayed",true);
 		}
 		
 		else {
-			Reporter.log(element[2] + " text is NOT displayed",true);
-			softAssert.fail(element[2] + " text is NOT displayed");
+			Reporter.log(" - FAILED : " + element[2] + " text is NOT displayed",true);
+			softAssert.fail(" - FAILED : " + element[2] + " text is NOT displayed");
 			}
 		}
 	}
@@ -139,50 +131,51 @@ public class Utils extends BaseClass{
 		{
 		WebElement webElem;
 	
-		boolean isSent = false;
+		boolean isKeyin = false;
 	
 		if (element[0] == "id") {
 			try {
 				webElem = driver.findElement(AppiumBy.id(element[1]));
 				webElem.sendKeys(amount);
-				isSent = true;
+				isKeyin = true;
 				}
 			catch (NoSuchElementException e) {
-				Reporter.log("Element is not displayed",true);	
+				Reporter.log(" - FAILED : "+element[2]+" Element is NOT displayed",true);
+				softAssert.fail(" - FAILED : "+element[2]+" Element is NOT displayed");
 				}
 			}	
 		else if (element[0] == "accessibilityId") {
 			try {
 				webElem = driver.findElement(AppiumBy.accessibilityId(element[1]));
 				webElem.sendKeys(amount);
-				isSent = true;
+				isKeyin = true;
 				}
 			catch (NoSuchElementException e) {
-				Reporter.log("Element is not displayed",true);	
+				Reporter.log(" - FAILED : "+element[2]+" Element is NOT displayed",true);
+				softAssert.fail(" - FAILED : "+element[2]+" Element is NOT displayed");
 				}
 			}
 		else {
 			try {
 				webElem = driver.findElement(AppiumBy.xpath(element[1]));
 				webElem.sendKeys(amount);
-				isSent = true;
+				isKeyin = true;
 				}
 			catch (NoSuchElementException e) {
-				Reporter.log("Element is not displayed",true);	
+				Reporter.log(" - FAILED : "+element[2]+" Element is NOT displayed",true);
+				softAssert.fail(" - FAILED : "+element[2]+" Element is NOT displayed");
 				}
 		
-		if (isSent == true) {
-			Reporter.log(element[2] + " text was Sent",true);
+		if (isKeyin == true) {
+			Reporter.log(" - PASSED : " + element[2] + " text is entered",true);
 		}
 		
 		else {
-			Reporter.log(element[2] + " text was NOT Sent",true);
-			softAssert.fail(element[2] + " text was NOT Sent");
+			Reporter.log(" - FAILED : " + element[2] + " text was NOT entered",true);
+			softAssert.fail(" - FAILED : "+ element[2] + " text was NOT entered");
 			}
 		}
 	}
-
-
 	 
 	public static void scrollDown() throws InterruptedException {
 		((JavascriptExecutor) driver).executeScript("mobile: scrollGesture", ImmutableMap.of(
@@ -198,7 +191,8 @@ public class Utils extends BaseClass{
 			driver.findElement(AppiumBy.androidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\""+text+"\"))"));
 			}
 		catch(NoSuchElementException e) {
-			Reporter.log("text not found", true);
+			Reporter.log(" - FAILED : Failed to navigate element, Text NOT found", true);
+			softAssert.fail(" - FAILED : to navigate element, Text NOT found");
 			}
 		}
 	

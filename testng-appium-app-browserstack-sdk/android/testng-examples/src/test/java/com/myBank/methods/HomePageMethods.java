@@ -50,10 +50,10 @@ public class HomePageMethods extends Utils{
 			WebElement accountNames = accountName.get(i);
 			String accountNamess = accountNames.getText();
          	
-			Reporter.log("PASSED : Account " + (i + 1) + " details : " + accountNamess + " " +accountDetails, true);
+			Reporter.log(" - PASSED : Account " + (i + 1) + " details : " + accountNamess + " " +accountDetails, true);
 	 	}
 		
-		Reporter.log("PASSED : number of accounts listed: " + accountCountstr, true);
+		Reporter.log(" - PASSED : number of accounts listed: " + accountCountstr, true);
 	 }
 
 	
@@ -68,10 +68,10 @@ public class HomePageMethods extends Utils{
         int elementY = elementLocation.getY();
         
         if (elementX == xloc && elementY == yloc) {
-        	Reporter.log("PASSED : Text is at the correct position",true);
+        	Reporter.log(" - PASSED : Text is at the correct position",true);
         }
         else {
-        	Reporter.log("FAILED : Text is not present in the position",true);
+        	Reporter.log(" - FAILED : Text is not present in the position",true);
         }
 		
     	}
