@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<!--sample-test.testng.xml-->
 <suite name="My Bank Test Suite">
+	
+	<!--
+	<listeners>
+		<listener class-name="com.myBank.utility.Listeners" />
+	</listeners>
+	-->
+	
     <test name="My Bank Test ">
         <classes>
             <class name="com.browserstack.FinalExamPOC_MyBank_01"/>
             <class name="com.browserstack.FinalExamPOC_MyBank_02"/>
             <class name="com.browserstack.FinalExamPOC_MyBank_03"/>
+            <class name="com.browserstack.FinalExamPOC_MyBank_04"/>
         </classes>
     </test>
 </suite>

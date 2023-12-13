@@ -1,5 +1,6 @@
 package com.myBank.methods;
 
+import java.io.IOException;
 import java.text.DecimalFormat;
 
 import org.openqa.selenium.By;
@@ -78,7 +79,7 @@ public class TransferPageMethods extends Utils{
 	}
 	
 	//TC_04
-	public void checkTransactionHistory (float amount,String[] sender,String[] receiver) {
+	public void checkTransactionHistory (float amount,String[] sender,String[] receiver) throws IOException {
 		
 		String senderInTransaction = getSender();
     	String receiverInTransaction = getReceiver();
@@ -118,6 +119,7 @@ public class TransferPageMethods extends Utils{
     		Reporter.log(" Status : " + transferStatus,true);
         		Reporter.log(" - FAILED : Transaction has been cancelled by " + senderInTransaction,true);
         		softAssert.fail(" - FAILED : Transaction has been cancelled by " + senderInTransaction);
+        		utils.getScreenShot();
         			 }
     	
     	else {
@@ -127,6 +129,7 @@ public class TransferPageMethods extends Utils{
     		Reporter.log(" Status : Failed",true);
     		Reporter.log(" - FAILED : Transaction is FAILED to Display in Transaction History Page. ",true);
     		softAssert.fail(" - FAILED : Transaction is FAILED to Display in Transaction History Page. ");
+    		utils.getScreenShot();
     	}
 	}
 }

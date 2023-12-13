@@ -1,5 +1,7 @@
 package com.browserstack;
 
+import java.io.IOException;
+
 import org.testng.Reporter;
 import org.testng.annotations.Test;
 
@@ -8,12 +10,10 @@ import com.myBank.utility.BaseClass;
 public class FinalExamPOC_MyBank_02 extends BaseClass {
 
 	@Test
-    public void myBank_02() {
+    public void myBank_02() throws IOException {
     	
     	Reporter.log("    ",true);
     	Reporter.log("Test case 2 Start",true);
-    	
-    	utils.waitApptoLoad();
     	
     	Reporter.log("Navigate View Accounts Page",true);
     	utils.clickOnElement(appObjects.ViewAccountsBtn);
@@ -24,7 +24,8 @@ public class FinalExamPOC_MyBank_02 extends BaseClass {
     	
     	Reporter.log("Validate Users details field if displayed:", true);
     	userDetailsPageMethods.validateUserDetails(user);
-    	   	
+    	utils.getAssertions();
+
     	Reporter.log("Test case 2 : Finished",true);
     	Reporter.log("    ",true);
     

@@ -1,5 +1,8 @@
 package com.myBank.methods;
 
+import java.io.IOException;
+import java.text.DecimalFormat;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.StaleElementReferenceException;
@@ -11,8 +14,6 @@ import com.myBank.utility.Utils;
 
 import io.appium.java_client.android.AndroidDriver;
 
-
-
 public class UserDetailsPageMethods extends Utils{
 	public AndroidDriver driver;
 	
@@ -21,30 +22,46 @@ public class UserDetailsPageMethods extends Utils{
 		this.driver=driver;
 	}
 	
-	//TC_02
-	public void clickOnUser(String[] userDetails) {
+	public void clickOnUser(String[] userDetails) throws IOException {
 		String usersName = userDetails[0];
 		String userDetail = "Customer Name: " + usersName;
-		
-		Utils.scollToText(userDetail);
-		
-		driver.findElement(By.xpath(".//*[contains(@text, '" +userDetail+ "')]")).click();
-		Reporter.log(" - PASSED : " +usersName + " was clicked", true);	
+
+		try {
+			Utils.scollToText(userDetail);
+			
+			WebElement elem = driver.findElement(By.xpath(".//*[contains(@text, '" +userDetail+ "')]"));
+			if (elem.isDisplayed()) 
+				elem.click();
+				Reporter.log(" - PASSED : " +usersName + " was clicked", true);	
+			}
+		catch(NoSuchElementException e) {
+			Reporter.log(" - FAILED : User not found",true);
+			softAssert.fail(" - FAILED : User not found");
+			utils.getScreenShot();
+		}
 	}
 	
 	
-	public void clickOnReceiver(String[] userDetails) {
+	public void clickOnReceiver(String[] userDetails) throws IOException {
 		String usersName = userDetails[0];
 			
-		Utils.scollToText(usersName);
+		try {
+			Utils.scollToText(usersName);
 		
-		driver.findElement(By.xpath(".//*[contains(@text, '" +usersName+ "')]")).click();
-		Reporter.log(" - PASSED : " + usersName + " was clicked", true);
-			
+			WebElement elem = driver.findElement(By.xpath(".//*[contains(@text, '" +usersName+ "')]"));	
+			if(elem.isDisplayed()) 
+				
+				elem.click();
+				Reporter.log(" - PASSED : " + usersName + " was clicked", true);
+			}
+		catch(NoSuchElementException e) {
+			Reporter.log(" - FAILED : User not found",true);
+			softAssert.fail(" - FAILED : User not found");
+			utils.getScreenShot();
+		}
 	}
 	
-	public void validateUserDetails(String[] userDetails) {
-		
+	public void validateUserDetails(String[] userDetails) throws IOException {
 		validateUsername(userDetails);
 		validateAccountNum(userDetails);
 		validateEmailId(userDetails);
@@ -53,136 +70,117 @@ public class UserDetailsPageMethods extends Utils{
 		validateCurrentBalance(userDetails);
 	}
 	
-	public void validateUsername(String[] userDetails) {
+	public void validateUsername(String[] userDetails) throws IOException {
 		String usersDetail = userDetails[0];
 		String fieldText = testData.HeaderField[0];
 		
-		WebElement Elem = driver.findElement(By.xpath(".//*[contains(@text, '"+ usersDetail +"')]"));
-		
-		if (Elem.isDisplayed()) {
-			try {
+		try {
+			WebElement elem = driver.findElement(By.xpath(".//*[contains(@text, '"+ usersDetail +"')]"));
+			
+			if (elem.isDisplayed())  {
 				Reporter.log(" - PASSED : Field " + fieldText + " with data " + usersDetail + " is Displayed",true);
+				}
 			}
-			catch (IndexOutOfBoundsException| NoSuchElementException e) {
-				Reporter.log(" - FAILED : Data not found",true);
-				softAssert.fail(" - FAILED : Data not found");
-			}
+			catch (IndexOutOfBoundsException | NoSuchElementException e) {
+				Reporter.log(" - FAILED : "+usersDetail+" data is not present on the page ",true);
+				softAssert.fail(" - FAILED : "+usersDetail+" data is not present on the page ");
+				utils.getScreenShot();
+				}
 		}
-		else {
-			Reporter.log(" - FAILED : " + fieldText + " " + usersDetail + " Field is NOT Displayed",true);
-			softAssert.fail(" - FAILED : " + fieldText + " " + usersDetail + " Field is NOT Displayed");
-		}
-	}
-
-
-	public void validateAccountNum(String[] userDetails) {
+		
+	public void validateAccountNum(String[] userDetails) throws IOException {
 		String usersDetail = userDetails[1];
 		String fieldText = testData.HeaderField[1];
 		
-		WebElement Elem = driver.findElement(By.xpath(".//*[contains(@text, '"+ usersDetail +"')]"));
-		
-		if (Elem.isDisplayed()) {
-			try {
+		try {
+			WebElement elem = driver.findElement(By.xpath(".//*[contains(@text, '"+ usersDetail +"')]"));
+			
+			if (elem.isDisplayed()) {
 				Reporter.log(" - PASSED : Field " + fieldText + " with data " + usersDetail + " is Displayed",true);
+				}
 			}
-			catch(IndexOutOfBoundsException | NoSuchElementException e) {
-				Reporter.log(" - FAILED : Data not found",true);
-				softAssert.fail(" - FAILED : Data not found");
-			}
+			catch (IndexOutOfBoundsException | NoSuchElementException e) {
+				Reporter.log(" - FAILED : "+usersDetail+" data is not present on the page ",true);
+				softAssert.fail(" - FAILED : "+usersDetail+" data is not present on the page ");
+				utils.getScreenShot();
+				}
 		}
-		else {
-			Reporter.log(" - FAILED : " + fieldText + " " + usersDetail + " Field is NOT Displayed",true);
-			softAssert.fail(" - FAILED : "+ fieldText + " " + usersDetail + " Field is NOT Displayed");
-		}
-	}
+		
 	
-	public void validateEmailId(String[] userDetails) {	
+	public void validateEmailId(String[] userDetails) throws IOException {	
 		String usersDetail = userDetails[2];
 		String fieldText = testData.HeaderField[2];
 		
-		WebElement Elem = driver.findElement(By.xpath(".//*[contains(@text, '"+ usersDetail +"')]"));
-		
-		if (Elem.isDisplayed()) {
-			try {
+		try {
+			WebElement elem = driver.findElement(By.xpath(".//*[contains(@text, '"+ usersDetail +"')]"));
+			
+			if (elem.isDisplayed())  {
 				Reporter.log(" - PASSED : Field " + fieldText + " with data " + usersDetail + " is Displayed",true);
+				}
 			}
-			catch(IndexOutOfBoundsException | NoSuchElementException e) {
-				Reporter.log(" - FAILED : Data not found",true);
-				softAssert.fail(" - FAILED : Data not found");
-			}
+			catch (IndexOutOfBoundsException | NoSuchElementException e) {
+				Reporter.log(" - FAILED : "+usersDetail+" data is not present on the page ",true);
+				softAssert.fail(" - FAILED : "+usersDetail+" data is not present on the page ");
+				utils.getScreenShot();
+				}
 		}
-		else {
-			Reporter.log(" - FAILED : " + fieldText + " " + usersDetail + " Field is NOT Displayed",true);
-			softAssert.fail(" - FAILED : " + fieldText + " " + usersDetail + " Field is NOT Displayed");
-		}
-	}
+
 	
-	public void validateMobileNum(String[] userDetails) {
+	public void validateMobileNum(String[] userDetails) throws IOException {
 		String usersDetail = userDetails[3];
 		String fieldText = testData.HeaderField[3];
 		
-		WebElement Elem = driver.findElement(By.xpath(".//*[contains(@text, '"+ usersDetail +"')]"));
-		
-		if (Elem.isDisplayed()) {
-			try {
+		try {
+			WebElement elem = driver.findElement(By.xpath(".//*[contains(@text, '"+ usersDetail +"')]"));
+			
+			if (elem.isDisplayed())  {
 				Reporter.log(" - PASSED : Field " + fieldText + " with data " + usersDetail + " is Displayed",true);
+				}
 			}
-			catch(IndexOutOfBoundsException | NoSuchElementException e) {
-				Reporter.log(" - FAILED : Data not found",true);
-				softAssert.fail(" - FAILED : Data not found");
-			}
+			catch (IndexOutOfBoundsException | NoSuchElementException e) {
+				Reporter.log(" - FAILED : "+usersDetail+" data is not present on the page ",true);
+				softAssert.fail(" - FAILED : "+usersDetail+" data is not present on the page ");
+				utils.getScreenShot();
+				}
 		}
-		else {
-			Reporter.log(" - FAILED : " + fieldText + " " + usersDetail + " Field is NOT Displayed",true);
-			softAssert.fail(" - FAILED : " + fieldText + " " + usersDetail + " Field is NOT Displayed");
-		}
-	}
 	
-	public void validateIfscCode(String[] userDetails) {
+	public void validateIfscCode(String[] userDetails) throws IOException {
 		String usersDetail = userDetails[4];
 		String fieldText = testData.HeaderField[4];
 		
-		WebElement Elem = driver.findElement(By.xpath(".//*[contains(@text, '"+ usersDetail +"')]"));
-		
-		if (Elem.isDisplayed()) {
-			try {
+		try {
+			WebElement elem = driver.findElement(By.xpath(".//*[contains(@text, '"+ usersDetail +"')]"));
+			
+			if (elem.isDisplayed())  {
 				Reporter.log(" - PASSED : Field " + fieldText + " with data " + usersDetail + " is Displayed",true);
+				}
 			}
-			catch(IndexOutOfBoundsException | NoSuchElementException e) {
-				Reporter.log(" - FAILED : Data not found",true);
-				softAssert.fail(" - FAILED : Data not found");
-			}
+			catch (IndexOutOfBoundsException | NoSuchElementException e) {
+				Reporter.log(" - FAILED : "+usersDetail+" data is not present on the page ",true);
+				softAssert.fail(" - FAILED : "+usersDetail+" data is not present on the page ");
+				utils.getScreenShot();
+				}
 		}
-		else {
-			Reporter.log(" - FAILED : " + fieldText + " " + usersDetail + " Field is NOT Displayed",true);
-			softAssert.fail(" - FAILED : " + fieldText + " " + usersDetail + " Field is NOT Displayed");
-		}
-	}
 
-	public void validateCurrentBalance(String[] userDetails) {
+	public void validateCurrentBalance(String[] userDetails) throws IOException {
 		String usersDetail = userDetails[5];
-		String fieldText = testData.HeaderField[5];
+		String fieldText =  testData.HeaderField[5];
 		
-		WebElement Elem = driver.findElement(By.xpath(".//*[contains(@text, '"+ usersDetail +"')]"));
-		
-		if (Elem.isDisplayed()) {
-			try {
+		try {
+			WebElement elem = driver.findElement(By.xpath(".//*[contains(@text, '"+ usersDetail +"')]"));
+			
+			if (elem.isDisplayed())  {
 				Reporter.log(" - PASSED : Field " + fieldText + " with data " + usersDetail + " is Displayed",true);
+				}
 			}
-			catch(IndexOutOfBoundsException | NoSuchElementException e) {
-				Reporter.log(" - FAILED : Data not found",true);
-				softAssert.fail(" - FAILED : Data not found");
-			}
+			catch (IndexOutOfBoundsException | NoSuchElementException e) {
+				Reporter.log(" - FAILED : "+usersDetail+" data is not present on the page ",true);
+				softAssert.fail(" - FAILED : "+usersDetail+" data is not present on the page ");
+				utils.getScreenShot();
+				}
 		}
-		else {
-			Reporter.log(" - FAILEd : " + fieldText + " " + usersDetail + " Field is NOT Displayed",true);
-			softAssert.fail(" - FAILEd : " + fieldText + " " + usersDetail + " Field is NOT Displayed");
-		}
-	}	
-
 	
-	//TC_03
-	public void transferMoney(float amount,String[] sender,String[] receiver) {
+	public void transferMoney(float amount,String[] sender,String[] receiver) throws IOException {
 			
 		String amountStr = String.valueOf(amount);
 		String userBalanceStr = sender[5].replaceAll("[^0-9.]", "");
@@ -192,7 +190,7 @@ public class UserDetailsPageMethods extends Utils{
 		
 	    if (amount < userBalance) {
 	    	
-	    	Reporter.log(" - PASSED : Send money with amount :" + amountStr,true);
+	    	Reporter.log(" - PASSED : Send money with amount: " + amountStr,true);
 		    utils.sendTextToField(appObjects.AmountField,amountStr);
 		    appObjects.clickOnElement(appObjects.SendMoneyBtn);
 		    
@@ -209,6 +207,7 @@ public class UserDetailsPageMethods extends Utils{
 	    	catch(AssertionError e) {
 	    		Reporter.log(" - FAILED : Toast message verification failed",true);
 	    		softAssert.fail(" - FAILED : Toast message verification failed");
+	    		utils.getScreenShot();
 	    	}
         	
 	    	String senderName = sender[0];
@@ -224,6 +223,7 @@ public class UserDetailsPageMethods extends Utils{
 				utils.navigateBack();
 				
 				softAssert.fail(" - FAILED : Insufficient User Balance");
+				utils.getScreenShot();
 				}
 	    	
 	    else {
@@ -233,6 +233,7 @@ public class UserDetailsPageMethods extends Utils{
 				utils.navigateBack();
 				
 				softAssert.fail(" - FAILED : No Data found for User Balance or Amount to send ");
+				utils.getScreenShot();
 	    	}
 	    	
 	}

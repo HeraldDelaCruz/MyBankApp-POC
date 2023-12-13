@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.browserstack.FinalExamPOC_MyBank_03">
+      <class name="com.browserstack.FinalExamPOC_MyBank_02">
         <methods>
           <include name="setUp"/>
           <include name="tearDown"/>
-          <include name="myBank_03"/>
+          <include name="myBank_02"/>
         </methods>
-      </class> <!-- com.browserstack.FinalExamPOC_MyBank_03 -->
+      </class> <!-- com.browserstack.FinalExamPOC_MyBank_02 -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

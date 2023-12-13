@@ -3,27 +3,13 @@
 <suite name="Failed suite [My Bank Test Suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="My Bank Test (failed)">
     <classes>
-      <class name="com.browserstack.FinalExamPOC_MyBank_03">
+      <class name="com.browserstack.FinalExamPOC_MyBank_04">
         <methods>
           <include name="setUp"/>
           <include name="tearDown"/>
-          <include name="myBank_03"/>
+          <include name="myBank_04"/>
         </methods>
-      </class> <!-- com.browserstack.FinalExamPOC_MyBank_03 -->
-      <class name="com.browserstack.FinalExamPOC_MyBank_02">
-        <methods>
-          <include name="setUp"/>
-          <include name="tearDown"/>
-          <include name="myBank_02"/>
-        </methods>
-      </class> <!-- com.browserstack.FinalExamPOC_MyBank_02 -->
-      <class name="com.browserstack.FinalExamPOC_MyBank_01">
-        <methods>
-          <include name="setUp"/>
-          <include name="tearDown"/>
-          <include name="myBank_01"/>
-        </methods>
-      </class> <!-- com.browserstack.FinalExamPOC_MyBank_01 -->
+      </class> <!-- com.browserstack.FinalExamPOC_MyBank_04 -->
     </classes>
   </test> <!-- My Bank Test (failed) -->
 </suite> <!-- Failed suite [My Bank Test Suite] -->

@@ -1,9 +1,16 @@
 package com.myBank.utility;
 
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
 
 import org.testng.Reporter;
@@ -13,20 +20,17 @@ import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.AndroidDriver;
 
 public class Utils extends BaseClass{
-	static AndroidDriver driver;
+	public static AndroidDriver driver;
 	
 	public Utils(AndroidDriver driver) {
-		Utils.driver = driver;
-		
+		this.driver = driver;
 	}
-	
 	
 	public void waitApptoLoad() {
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	}
 	
-	
-	public void clickOnElement(String[] element) 
+	public void clickOnElement(String[] element) throws IOException 
 	{
 		boolean isClicked = false;
 		
@@ -39,6 +43,7 @@ public class Utils extends BaseClass{
 			catch(NoSuchElementException e) {
 				Reporter.log(" - FAILED : "+element[2]+"Element is NOT displayed",true);
 				softAssert.fail(" - FAILED : "+element[2]+" Element is NOT displayed");
+				utils.getScreenShot();
 			}
 			}
 			
@@ -52,6 +57,7 @@ public class Utils extends BaseClass{
 			catch(NoSuchElementException e) {
 				Reporter.log(" - FAILED : "+element[2]+" Element is NOT displayed",true);
 				softAssert.fail(" - FAILED : "+element[2]+" Element is NOT displayed");
+				utils.getScreenShot();
 			}
 			}
 		
@@ -64,6 +70,7 @@ public class Utils extends BaseClass{
 			catch(NoSuchElementException e) {
 				Reporter.log(" - FAILED : "+element[2]+" Element is NOT displayed",true);
 				softAssert.fail(" - FAILED : "+element[2]+" Element is NOT displayed");
+				utils.getScreenShot();
 			}
 			}
 		
@@ -74,11 +81,12 @@ public class Utils extends BaseClass{
 		else {
 			Reporter.log(" - FAILED : " + element[2] + " was NOT clicked",true);
 			softAssert.fail(" - FAILED : " + element[2] + " was NOT clicked");
+			utils.getScreenShot();
 		}
 	}
 	
 
-	public void assertTextIsDisplayed(String[] element) 
+	public void assertTextIsDisplayed(String[] element) throws IOException 
 		{
 		WebElement webElem;
 		boolean isDisplayed = false;
@@ -86,33 +94,39 @@ public class Utils extends BaseClass{
 		if (element[0] == "id") {
 			try {
 				webElem = driver.findElement(AppiumBy.id(element[1]));
+				webElem.isDisplayed();
 				isDisplayed = true;
 				}
 			catch (NoSuchElementException e) {
 				Reporter.log(" - FAILED : "+element[2]+" Element is NOT displayed",true);
 				softAssert.fail(" - FAILED : "+element[2]+" Element is NOT displayed");
+				utils.getScreenShot();
 			}
 		}
 		
 		else if (element[0] == "accessibilityId") {
 			try {
 				webElem = driver.findElement(AppiumBy.accessibilityId(element[1]));
+				webElem.isDisplayed();
 				isDisplayed = true;
 				}
 			catch (NoSuchElementException e) {
 				Reporter.log(" - FAILED : "+element[2]+" Element is NOT displayed",true);
 				softAssert.fail(" - FAILED : "+element[2]+" Element is NOT displayed");
+				utils.getScreenShot();
 				
 			}
 		}
 		else {
 			try {
 				webElem = driver.findElement(AppiumBy.xpath(element[1]));
+				webElem.isDisplayed();
 				isDisplayed = true;
 				}
 			catch (NoSuchElementException e) {
 				Reporter.log(" - FAILED : "+element[2]+" Element is NOT displayed",true);
 				softAssert.fail(" - FAILED : "+element[2]+" Element is NOT displayed");
+				utils.getScreenShot();
 		}
 			
 		if (isDisplayed == true) {
@@ -122,12 +136,13 @@ public class Utils extends BaseClass{
 		else {
 			Reporter.log(" - FAILED : " + element[2] + " text is NOT displayed",true);
 			softAssert.fail(" - FAILED : " + element[2] + " text is NOT displayed");
+			utils.getScreenShot();
 			}
 		}
 	}
 
 
-	public void sendTextToField(String[] element,String amount) 
+	public void sendTextToField(String[] element,String amount) throws IOException 
 		{
 		WebElement webElem;
 	
@@ -142,6 +157,7 @@ public class Utils extends BaseClass{
 			catch (NoSuchElementException e) {
 				Reporter.log(" - FAILED : "+element[2]+" Element is NOT displayed",true);
 				softAssert.fail(" - FAILED : "+element[2]+" Element is NOT displayed");
+				utils.getScreenShot();
 				}
 			}	
 		else if (element[0] == "accessibilityId") {
@@ -153,6 +169,7 @@ public class Utils extends BaseClass{
 			catch (NoSuchElementException e) {
 				Reporter.log(" - FAILED : "+element[2]+" Element is NOT displayed",true);
 				softAssert.fail(" - FAILED : "+element[2]+" Element is NOT displayed");
+				utils.getScreenShot();
 				}
 			}
 		else {
@@ -164,6 +181,7 @@ public class Utils extends BaseClass{
 			catch (NoSuchElementException e) {
 				Reporter.log(" - FAILED : "+element[2]+" Element is NOT displayed",true);
 				softAssert.fail(" - FAILED : "+element[2]+" Element is NOT displayed");
+				utils.getScreenShot();
 				}
 		
 		if (isKeyin == true) {
@@ -171,8 +189,9 @@ public class Utils extends BaseClass{
 		}
 		
 		else {
-			Reporter.log(" - FAILED : " + element[2] + " text was NOT entered",true);
-			softAssert.fail(" - FAILED : "+ element[2] + " text was NOT entered");
+			Reporter.log(" - FAILED : " + element[2] + " text is NOT entered",true);
+			softAssert.fail(" - FAILED : "+ element[2] + " text is NOT entered");
+			utils.getScreenShot();
 			}
 		}
 	}
@@ -186,19 +205,47 @@ public class Utils extends BaseClass{
 		}
 	
 	
-	public static void scollToText(String text) {
+	public static void scollToText(String text) throws IOException {
 		try {
 			driver.findElement(AppiumBy.androidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\""+text+"\"))"));
 			}
 		catch(NoSuchElementException e) {
-			Reporter.log(" - FAILED : Failed to navigate element, Text NOT found", true);
-			softAssert.fail(" - FAILED : to navigate element, Text NOT found");
+			Reporter.log(" - FAILED : Failed to navigate element, Element NOT found", true);
+			softAssert.fail(" - FAILED : to navigate element, Element NOT found");
+			utils.getScreenShot();
 			}
 		}
 	
 	public void navigateBack() {
 		driver.navigate().back();
-		Reporter.log("Navigated to Previous page");
+		Reporter.log("Navigate to Previous page");
+	
 	}
-	 
+	
+	
+	public void getAssertions() {
+		softAssert.assertAll();
+	};
+	
+	
+	public void getScreenShot() throws IOException {
+		//Date currentDate = new Date();
+		String ssFileName = new SimpleDateFormat("MMddyyyy-hhmmss").format(new Date());
+
+		TakesScreenshot screenshot = (TakesScreenshot) driver;
+		
+		File sourceFile = screenshot.getScreenshotAs(OutputType.FILE);
+		String destination = System.getProperty("user.dir") + "\\CapturedScreenshot\\FailedTests\\Failed - " +ssFileName+ ".png";
+		File destinationFile = new File(destination);
+		
+		try {
+			FileUtils.copyFile(sourceFile, destinationFile);
+			} 
+		catch (IOException e) {
+			Reporter.log(" - Failed to capture screenshot , " + e.getMessage());
+		}
+	}
+	
+	
+	
 }	 	

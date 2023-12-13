@@ -1,6 +1,114 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="4" passed="3" failed="1" skipped="0">
   <reporter-output>
+    <line>
+      <![CDATA[    ]]>
+    </line>
+    <line>
+      <![CDATA[Test case 1 Start]]>
+    </line>
+    <line>
+      <![CDATA[Navigate View Accounts Page]]>
+    </line>
+    <line>
+      <![CDATA[ - PASSED : View Account was clicked]]>
+    </line>
+    <line>
+      <![CDATA[Verify 'Banking System' text from header if Displayed:]]>
+    </line>
+    <line>
+      <![CDATA[ - PASSED : Banking System text is displayed]]>
+    </line>
+    <line>
+      <![CDATA[ - PASSED : Text is at the correct position]]>
+    </line>
+    <line>
+      <![CDATA[Get and Log the accounts listed in the page:]]>
+    </line>
+    <line>
+      <![CDATA[ - PASSED : Account 1 details : Account Number: 9111234561644 Customer Name: Cyril]]>
+    </line>
+    <line>
+      <![CDATA[ - PASSED : Account 2 details : Account Number: 9111234562463 Customer Name: Neomi]]>
+    </line>
+    <line>
+      <![CDATA[ - PASSED : Account 3 details : Account Number: 9111234562567 Customer Name: Shebon]]>
+    </line>
+    <line>
+      <![CDATA[ - PASSED : Account 4 details : Account Number: 9111234562685 Customer Name: Chandichen]]>
+    </line>
+    <line>
+      <![CDATA[ - PASSED : Account 5 details : Account Number: 9111234563473 Customer Name: Nikita]]>
+    </line>
+    <line>
+      <![CDATA[ - PASSED : Account 6 details : Account Number: 9111234563567 Customer Name: Chandni]]>
+    </line>
+    <line>
+      <![CDATA[ - PASSED : Account 7 details : Account Number: 9111234563573 Customer Name: Alka]]>
+    </line>
+    <line>
+      <![CDATA[ - PASSED : Account 8 details : Account Number: 9111234563664 Customer Name: Athul]]>
+    </line>
+    <line>
+      <![CDATA[ - PASSED : number of accounts listed: 8]]>
+    </line>
+    <line>
+      <![CDATA[Test case 1 : Finished]]>
+    </line>
+    <line>
+      <![CDATA[    ]]>
+    </line>
+    <line>
+      <![CDATA[ ]]>
+    </line>
+    <line>
+      <![CDATA[    ]]>
+    </line>
+    <line>
+      <![CDATA[Test case 2 Start]]>
+    </line>
+    <line>
+      <![CDATA[Navigate View Accounts Page]]>
+    </line>
+    <line>
+      <![CDATA[ - PASSED : View Account was clicked]]>
+    </line>
+    <line>
+      <![CDATA[Navigate User: Meenakshi]]>
+    </line>
+    <line>
+      <![CDATA[ - PASSED : Meenakshi was clicked]]>
+    </line>
+    <line>
+      <![CDATA[Validate Users details field if displayed:]]>
+    </line>
+    <line>
+      <![CDATA[ - PASSED : Field Name with data Meenakshi is Displayed]]>
+    </line>
+    <line>
+      <![CDATA[ - PASSED : Field Account Number with data 9111234568524 is Displayed]]>
+    </line>
+    <line>
+      <![CDATA[ - PASSED : Field Email ID with data meenu99@gmail.com is Displayed]]>
+    </line>
+    <line>
+      <![CDATA[ - PASSED : Field Mobile Number with data 1234567892 is Displayed]]>
+    </line>
+    <line>
+      <![CDATA[ - PASSED : Field IFSC Code with data CAB87654321 is Displayed]]>
+    </line>
+    <line>
+      <![CDATA[ - PASSED : Field Current Balance with data 1,359.56 is Displayed]]>
+    </line>
+    <line>
+      <![CDATA[Test case 2 : Finished]]>
+    </line>
+    <line>
+      <![CDATA[    ]]>
+    </line>
+    <line>
+      <![CDATA[ ]]>
+    </line>
     <line>
       <![CDATA[    ]]>
     </line>
@@ -20,28 +128,22 @@
       <![CDATA[ - PASSED : Nikita was clicked]]>
     </line>
     <line>
-      <![CDATA[Processing Transfer of Money]]>
+      <![CDATA[Processing Transfer of Money with amount: 5000.0]]>
     </line>
     <line>
       <![CDATA[ - PASSED : Transfer Money was clicked]]>
     </line>
     <line>
-      <![CDATA[ - PASSED : Send money with amount:500.0]]>
+      <![CDATA[ - FAILED : Insufficient User Balance]]>
     </line>
     <line>
-      <![CDATA[ - PASSED : Send Money was clicked]]>
+      <![CDATA[ - PASSED : Cancel was clicked]]>
     </line>
     <line>
-      <![CDATA[ - PASSED : Navigate User: Shebon as the Receiver]]>
+      <![CDATA[ - PASSED : Yes was clicked]]>
     </line>
     <line>
-      <![CDATA[ - PASSED : Shebon was clicked]]>
-    </line>
-    <line>
-      <![CDATA[ - PASSED : Toast message verified]]>
-    </line>
-    <line>
-      <![CDATA[ - PASSED : Money from Nikita is sent to Shebon with amount of 500.0 is transfered successfully]]>
+      <![CDATA[Navigate to Previous page]]>
     </line>
     <line>
       <![CDATA[Test case 3 : Finished]]>
@@ -50,10 +152,43 @@
       <![CDATA[    ]]>
     </line>
     <line>
+      <![CDATA[ ]]>
+    </line>
+    <line>
       <![CDATA[    ]]>
     </line>
     <line>
       <![CDATA[Test case 4 Start]]>
+    </line>
+    <line>
+      <![CDATA[Navigate View Accounts Page]]>
+    </line>
+    <line>
+      <![CDATA[ - PASSED : View Account was clicked]]>
+    </line>
+    <line>
+      <![CDATA[Navigate User: Meenakshi as Sender]]>
+    </line>
+    <line>
+      <![CDATA[ - PASSED : Meenakshi was clicked]]>
+    </line>
+    <line>
+      <![CDATA[Processing Transfer of Money with amount: 5000.0]]>
+    </line>
+    <line>
+      <![CDATA[ - PASSED : Transfer Money was clicked]]>
+    </line>
+    <line>
+      <![CDATA[ - FAILED : Insufficient User Balance]]>
+    </line>
+    <line>
+      <![CDATA[ - PASSED : Cancel was clicked]]>
+    </line>
+    <line>
+      <![CDATA[ - PASSED : Yes was clicked]]>
+    </line>
+    <line>
+      <![CDATA[Navigate to Previous page]]>
     </line>
     <line>
       <![CDATA[Navigate Transaction History Page]]>
@@ -65,40 +200,108 @@
       <![CDATA[Checking Transaction History Page]]>
     </line>
     <line>
-      <![CDATA[ Sender  : Nikita]]>
+      <![CDATA[ Sender : Meenakshi]]>
     </line>
     <line>
-      <![CDATA[ Receiver  : Shebon]]>
+      <![CDATA[ Receiver : No User is selected]]>
     </line>
     <line>
-      <![CDATA[ Amount  : 500.00]]>
+      <![CDATA[ Amount : 0.00]]>
     </line>
     <line>
-      <![CDATA[ Status : Success]]>
+      <![CDATA[ Status : Failed]]>
     </line>
     <line>
-      <![CDATA[ - PASSED : Transaction : Money with amount of 500.00 from Nikita that sent to Shebon is Displayed in Transaction History Page.]]>
-    </line>
-    <line>
-      <![CDATA[Test case 4 : Finished]]>
-    </line>
-    <line>
-      <![CDATA[    ]]>
+      <![CDATA[ - FAILED : Transaction has been cancelled by Meenakshi]]>
     </line>
     <line>
       <![CDATA[ ]]>
     </line>
   </reporter-output>
-  <suite started-at="2023-12-06T05:08:23 SGT" name="Default suite" finished-at="2023-12-06T05:09:03 SGT" duration-ms="40065">
+  <suite started-at="2023-12-13T11:12:14 SGT" name="My Bank Test Suite" finished-at="2023-12-13T11:15:38 SGT" duration-ms="204009">
     <groups>
     </groups>
-    <test started-at="2023-12-06T05:08:23 SGT" name="Default test" finished-at="2023-12-06T05:09:03 SGT" duration-ms="40065">
-      <class name="com.browserstack.FinalExamPOC_MyBank_03">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.browserstack.FinalExamPOC_MyBank_03@35f26e72]" started-at="2023-12-06T05:08:23 SGT" name="setUp" finished-at="2023-12-06T05:08:43 SGT" duration-ms="20535" status="PASS">
+    <test started-at="2023-12-13T11:12:14 SGT" name="My Bank Test " finished-at="2023-12-13T11:15:38 SGT" duration-ms="204009">
+      <class name="com.browserstack.FinalExamPOC_MyBank_01">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.browserstack.FinalExamPOC_MyBank_01@67304a40]" started-at="2023-12-13T11:12:14 SGT" name="setUp" finished-at="2023-12-13T11:12:48 SGT" duration-ms="33828" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="myBank_03()[pri:0, instance:com.browserstack.FinalExamPOC_MyBank_03@35f26e72]" started-at="2023-12-06T05:08:43 SGT" name="myBank_03" finished-at="2023-12-06T05:09:01 SGT" duration-ms="17956" status="PASS">
+        <test-method signature="myBank_01()[pri:0, instance:com.browserstack.FinalExamPOC_MyBank_01@67304a40]" started-at="2023-12-13T11:12:48 SGT" name="myBank_01" finished-at="2023-12-13T11:13:07 SGT" duration-ms="19477" status="PASS">
+          <reporter-output>
+            <line>
+              <![CDATA[    ]]>
+            </line>
+            <line>
+              <![CDATA[Test case 1 Start]]>
+            </line>
+            <line>
+              <![CDATA[Navigate View Accounts Page]]>
+            </line>
+            <line>
+              <![CDATA[ - PASSED : View Account was clicked]]>
+            </line>
+            <line>
+              <![CDATA[Verify 'Banking System' text from header if Displayed:]]>
+            </line>
+            <line>
+              <![CDATA[ - PASSED : Banking System text is displayed]]>
+            </line>
+            <line>
+              <![CDATA[ - PASSED : Text is at the correct position]]>
+            </line>
+            <line>
+              <![CDATA[Get and Log the accounts listed in the page:]]>
+            </line>
+            <line>
+              <![CDATA[ - PASSED : Account 1 details : Account Number: 9111234561644 Customer Name: Cyril]]>
+            </line>
+            <line>
+              <![CDATA[ - PASSED : Account 2 details : Account Number: 9111234562463 Customer Name: Neomi]]>
+            </line>
+            <line>
+              <![CDATA[ - PASSED : Account 3 details : Account Number: 9111234562567 Customer Name: Shebon]]>
+            </line>
+            <line>
+              <![CDATA[ - PASSED : Account 4 details : Account Number: 9111234562685 Customer Name: Chandichen]]>
+            </line>
+            <line>
+              <![CDATA[ - PASSED : Account 5 details : Account Number: 9111234563473 Customer Name: Nikita]]>
+            </line>
+            <line>
+              <![CDATA[ - PASSED : Account 6 details : Account Number: 9111234563567 Customer Name: Chandni]]>
+            </line>
+            <line>
+              <![CDATA[ - PASSED : Account 7 details : Account Number: 9111234563573 Customer Name: Alka]]>
+            </line>
+            <line>
+              <![CDATA[ - PASSED : Account 8 details : Account Number: 9111234563664 Customer Name: Athul]]>
+            </line>
+            <line>
+              <![CDATA[ - PASSED : number of accounts listed: 8]]>
+            </line>
+            <line>
+              <![CDATA[Test case 1 : Finished]]>
+            </line>
+            <line>
+              <![CDATA[    ]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- myBank_01 -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.browserstack.FinalExamPOC_MyBank_01@67304a40]" started-at="2023-12-13T11:13:07 SGT" name="tearDown" finished-at="2023-12-13T11:13:09 SGT" duration-ms="1459" status="PASS">
+          <reporter-output>
+            <line>
+              <![CDATA[ ]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.browserstack.FinalExamPOC_MyBank_01 -->
+      <class name="com.browserstack.FinalExamPOC_MyBank_03">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.browserstack.FinalExamPOC_MyBank_03@5d8bafa9]" started-at="2023-12-13T11:13:46 SGT" name="setUp" finished-at="2023-12-13T11:14:10 SGT" duration-ms="24691" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="myBank_03()[pri:0, instance:com.browserstack.FinalExamPOC_MyBank_03@5d8bafa9]" started-at="2023-12-13T11:14:10 SGT" name="myBank_03" finished-at="2023-12-13T11:14:29 SGT" duration-ms="18988" status="PASS">
           <reporter-output>
             <line>
               <![CDATA[    ]]>
@@ -119,28 +322,22 @@
               <![CDATA[ - PASSED : Nikita was clicked]]>
             </line>
             <line>
-              <![CDATA[Processing Transfer of Money]]>
+              <![CDATA[Processing Transfer of Money with amount: 5000.0]]>
             </line>
             <line>
               <![CDATA[ - PASSED : Transfer Money was clicked]]>
             </line>
             <line>
-              <![CDATA[ - PASSED : Send money with amount:500.0]]>
+              <![CDATA[ - FAILED : Insufficient User Balance]]>
             </line>
             <line>
-              <![CDATA[ - PASSED : Send Money was clicked]]>
+              <![CDATA[ - PASSED : Cancel was clicked]]>
             </line>
             <line>
-              <![CDATA[ - PASSED : Navigate User: Shebon as the Receiver]]>
+              <![CDATA[ - PASSED : Yes was clicked]]>
             </line>
             <line>
-              <![CDATA[ - PASSED : Shebon was clicked]]>
-            </line>
-            <line>
-              <![CDATA[ - PASSED : Toast message verified]]>
-            </line>
-            <line>
-              <![CDATA[ - PASSED : Money from Nikita is sent to Shebon with amount of 500.0 is transfered successfully]]>
+              <![CDATA[Navigate to Previous page]]>
             </line>
             <line>
               <![CDATA[Test case 3 : Finished]]>
@@ -148,11 +345,165 @@
             <line>
               <![CDATA[    ]]>
             </line>
+          </reporter-output>
+        </test-method> <!-- myBank_03 -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.browserstack.FinalExamPOC_MyBank_03@5d8bafa9]" started-at="2023-12-13T11:14:29 SGT" name="tearDown" finished-at="2023-12-13T11:14:31 SGT" duration-ms="1514" status="PASS">
+          <reporter-output>
+            <line>
+              <![CDATA[ ]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.browserstack.FinalExamPOC_MyBank_03 -->
+      <class name="com.browserstack.FinalExamPOC_MyBank_02">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.browserstack.FinalExamPOC_MyBank_02@584f54e6]" started-at="2023-12-13T11:13:09 SGT" name="setUp" finished-at="2023-12-13T11:13:30 SGT" duration-ms="21008" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="myBank_02()[pri:0, instance:com.browserstack.FinalExamPOC_MyBank_02@584f54e6]" started-at="2023-12-13T11:13:30 SGT" name="myBank_02" finished-at="2023-12-13T11:13:44 SGT" duration-ms="14295" status="PASS">
+          <reporter-output>
+            <line>
+              <![CDATA[    ]]>
+            </line>
+            <line>
+              <![CDATA[Test case 2 Start]]>
+            </line>
+            <line>
+              <![CDATA[Navigate View Accounts Page]]>
+            </line>
+            <line>
+              <![CDATA[ - PASSED : View Account was clicked]]>
+            </line>
+            <line>
+              <![CDATA[Navigate User: Meenakshi]]>
+            </line>
+            <line>
+              <![CDATA[ - PASSED : Meenakshi was clicked]]>
+            </line>
+            <line>
+              <![CDATA[Validate Users details field if displayed:]]>
+            </line>
+            <line>
+              <![CDATA[ - PASSED : Field Name with data Meenakshi is Displayed]]>
+            </line>
+            <line>
+              <![CDATA[ - PASSED : Field Account Number with data 9111234568524 is Displayed]]>
+            </line>
+            <line>
+              <![CDATA[ - PASSED : Field Email ID with data meenu99@gmail.com is Displayed]]>
+            </line>
+            <line>
+              <![CDATA[ - PASSED : Field Mobile Number with data 1234567892 is Displayed]]>
+            </line>
+            <line>
+              <![CDATA[ - PASSED : Field IFSC Code with data CAB87654321 is Displayed]]>
+            </line>
+            <line>
+              <![CDATA[ - PASSED : Field Current Balance with data 1,359.56 is Displayed]]>
+            </line>
+            <line>
+              <![CDATA[Test case 2 : Finished]]>
+            </line>
+            <line>
+              <![CDATA[    ]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- myBank_02 -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.browserstack.FinalExamPOC_MyBank_02@584f54e6]" started-at="2023-12-13T11:13:44 SGT" name="tearDown" finished-at="2023-12-13T11:13:46 SGT" duration-ms="1583" status="PASS">
+          <reporter-output>
+            <line>
+              <![CDATA[ ]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.browserstack.FinalExamPOC_MyBank_02 -->
+      <class name="com.browserstack.FinalExamPOC_MyBank_04">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.browserstack.FinalExamPOC_MyBank_04@576f63f6]" started-at="2023-12-13T11:14:31 SGT" name="setUp" finished-at="2023-12-13T11:14:54 SGT" duration-ms="23354" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="myBank_04()[pri:0, instance:com.browserstack.FinalExamPOC_MyBank_04@576f63f6]" started-at="2023-12-13T11:14:54 SGT" name="myBank_04" finished-at="2023-12-13T11:15:36 SGT" duration-ms="41621" status="FAIL">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[The following asserts failed:
+ - FAILED : Insufficient User Balance,
+ - FAILED : Transaction has been cancelled by Meenakshi]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: The following asserts failed:
+ - FAILED : Insufficient User Balance,
+ - FAILED : Transaction has been cancelled by Meenakshi
+at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:46)
+at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:30)
+at com.myBank.utility.Utils.getAssertions(Utils.java:227)
+at com.browserstack.FinalExamPOC_MyBank_04.myBank_04(FinalExamPOC_MyBank_04.java:34)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:135)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:673)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:220)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:945)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:193)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:808)
+at org.testng.TestRunner.run(TestRunner.java:603)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:429)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:423)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:383)
+at org.testng.SuiteRunner.run(SuiteRunner.java:326)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1249)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
+at org.testng.TestNG.runSuites(TestNG.java:1092)
+at org.testng.TestNG.run(TestNG.java:1060)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
             <line>
               <![CDATA[    ]]>
             </line>
             <line>
               <![CDATA[Test case 4 Start]]>
+            </line>
+            <line>
+              <![CDATA[Navigate View Accounts Page]]>
+            </line>
+            <line>
+              <![CDATA[ - PASSED : View Account was clicked]]>
+            </line>
+            <line>
+              <![CDATA[Navigate User: Meenakshi as Sender]]>
+            </line>
+            <line>
+              <![CDATA[ - PASSED : Meenakshi was clicked]]>
+            </line>
+            <line>
+              <![CDATA[Processing Transfer of Money with amount: 5000.0]]>
+            </line>
+            <line>
+              <![CDATA[ - PASSED : Transfer Money was clicked]]>
+            </line>
+            <line>
+              <![CDATA[ - FAILED : Insufficient User Balance]]>
+            </line>
+            <line>
+              <![CDATA[ - PASSED : Cancel was clicked]]>
+            </line>
+            <line>
+              <![CDATA[ - PASSED : Yes was clicked]]>
+            </line>
+            <line>
+              <![CDATA[Navigate to Previous page]]>
             </line>
             <line>
               <![CDATA[Navigate Transaction History Page]]>
@@ -164,36 +515,30 @@
               <![CDATA[Checking Transaction History Page]]>
             </line>
             <line>
-              <![CDATA[ Sender  : Nikita]]>
+              <![CDATA[ Sender : Meenakshi]]>
             </line>
             <line>
-              <![CDATA[ Receiver  : Shebon]]>
+              <![CDATA[ Receiver : No User is selected]]>
             </line>
             <line>
-              <![CDATA[ Amount  : 500.00]]>
+              <![CDATA[ Amount : 0.00]]>
             </line>
             <line>
-              <![CDATA[ Status : Success]]>
+              <![CDATA[ Status : Failed]]>
             </line>
             <line>
-              <![CDATA[ - PASSED : Transaction : Money with amount of 500.00 from Nikita that sent to Shebon is Displayed in Transaction History Page.]]>
-            </line>
-            <line>
-              <![CDATA[Test case 4 : Finished]]>
-            </line>
-            <line>
-              <![CDATA[    ]]>
+              <![CDATA[ - FAILED : Transaction has been cancelled by Meenakshi]]>
             </line>
           </reporter-output>
-        </test-method> <!-- myBank_03 -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.browserstack.FinalExamPOC_MyBank_03@35f26e72]" started-at="2023-12-06T05:09:01 SGT" name="tearDown" finished-at="2023-12-06T05:09:03 SGT" duration-ms="1554" status="PASS">
+        </test-method> <!-- myBank_04 -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.browserstack.FinalExamPOC_MyBank_04@576f63f6]" started-at="2023-12-13T11:15:36 SGT" name="tearDown" finished-at="2023-12-13T11:15:38 SGT" duration-ms="2163" status="PASS">
           <reporter-output>
             <line>
               <![CDATA[ ]]>
             </line>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- com.browserstack.FinalExamPOC_MyBank_03 -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+      </class> <!-- com.browserstack.FinalExamPOC_MyBank_04 -->
+    </test> <!-- My Bank Test  -->
+  </suite> <!-- My Bank Test Suite -->
 </testng-results>

@@ -5,7 +5,6 @@ import com.myBank.utility.Utils;
 
 import io.appium.java_client.android.AndroidDriver;
 
-//import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
 
@@ -16,7 +15,6 @@ public class AppObjects extends Utils{
 		super(driver);
 		this.driver=driver;
 		PageFactory.initElements(new AppiumFieldDecorator(driver), this);
-		
 	}
 	
 	public String[] ViewAccountsBtn = {"id","com.sleepingpandaaa.bankingsystem:id/btnViewUsers","View Account"};

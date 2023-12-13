@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>My Bank Test </h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>3/0/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>3/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Wed Dec 06 04:04:21 SGT 2023</td>
+<td>Started on:</td><td>Wed Dec 13 11:12:14 SGT 2023</td>
 </tr>
-<tr><td>Total time:</td><td>139 seconds (139013 ms)</td>
+<tr><td>Total time:</td><td>204 seconds (204009 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -68,35 +68,60 @@ function toggleAllBoxes() {
 </table><p/>
 <small><i>(Hover the method name to see the test class name)</i></small><p/>
 <table width='100%' border='1' class='invocation-failed'>
-<tr><td colspan='4' align='center'><b>FAILED CONFIGURATIONS</b></td></tr>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
 <tr><td><b>Test method</b></td>
 <td width="30%"><b>Exception</b></td>
 <td width="10%"><b>Time (seconds)</b></td>
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='com.browserstack.FinalExamPOC_MyBank_03.tearDown()'><b>tearDown</b><br>Test class: com.browserstack.FinalExamPOC_MyBank_03</td>
+<td title='com.browserstack.FinalExamPOC_MyBank_04.myBank_04()'><b>myBank_04</b><br>Test class: com.browserstack.FinalExamPOC_MyBank_04<br/>
+<a href="#Output-589489519" onClick='toggleBox("Output-589489519", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-589489519" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-589489519">
+    <br/>
+Test case 4 Start<br/>
+Navigate View Accounts Page<br/>
+ - PASSED : View Account was clicked<br/>
+Navigate User: Meenakshi as Sender<br/>
+ - PASSED : Meenakshi was clicked<br/>
+Processing Transfer of Money with amount: 5000.0<br/>
+ - PASSED : Transfer Money was clicked<br/>
+ - FAILED : Insufficient User Balance<br/>
+ - PASSED : Cancel was clicked<br/>
+ - PASSED : Yes was clicked<br/>
+Navigate to Previous page<br/>
+Navigate Transaction History Page<br/>
+ - PASSED : History was clicked<br/>
+Checking Transaction History Page<br/>
+ Sender : Meenakshi<br/>
+ Receiver : No User is selected<br/>
+ Amount : 0.00<br/>
+ Status : Failed<br/>
+ - FAILED : Transaction has been cancelled by Meenakshi<br/>
+</div>
+</td>
 <td><div><pre>java.lang.AssertionError: The following asserts failed:
-	 - FAILED : Toast message verification failed
-	at com.myBank.utility.BaseClass.tearDown(BaseClass.java:81)
+	 - FAILED : Insufficient User Balance,
+	 - FAILED : Transaction has been cancelled by Meenakshi
+	at com.myBank.utility.Utils.getAssertions(Utils.java:227)
+	at com.browserstack.FinalExamPOC_MyBank_04.myBank_04(FinalExamPOC_MyBank_04.java:34)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-... Removed 34 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace712874817", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace712874817'><pre>java.lang.AssertionError: The following asserts failed:
-	 - FAILED : Toast message verification failed
+... Removed 29 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace589489519", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace589489519'><pre>java.lang.AssertionError: The following asserts failed:
+	 - FAILED : Insufficient User Balance,
+	 - FAILED : Transaction has been cancelled by Meenakshi
 	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:46)
 	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:30)
-	at com.myBank.utility.BaseClass.tearDown(BaseClass.java:81)
+	at com.myBank.utility.Utils.getAssertions(Utils.java:227)
+	at com.browserstack.FinalExamPOC_MyBank_04.myBank_04(FinalExamPOC_MyBank_04.java:34)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
 	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:135)
-	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:65)
-	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:381)
-	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:319)
-	at org.testng.internal.invokers.TestInvoker.runConfigMethods(TestInvoker.java:803)
-	at org.testng.internal.invokers.TestInvoker.runAfterConfigurations(TestInvoker.java:772)
-	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:748)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:673)
 	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:220)
 	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
 	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:945)
@@ -120,8 +145,8 @@ function toggleAllBoxes() {
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
-<td>0</td>
-<td>com.browserstack.FinalExamPOC_MyBank_03@52851b44</td></tr>
+<td>41</td>
+<td>com.browserstack.FinalExamPOC_MyBank_04@576f63f6</td></tr>
 </table><p>
 <table width='100%' border='1' class='invocation-passed'>
 <tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
@@ -131,37 +156,11 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='com.browserstack.FinalExamPOC_MyBank_02.myBank_02()'><b>myBank_02</b><br>Test class: com.browserstack.FinalExamPOC_MyBank_02<br/>
-<a href="#Output-650410100" onClick='toggleBox("Output-650410100", this, "Show output", "Hide output");'>Show output</a>
-
-<a href="#Output-650410100" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-650410100">
-    <br/>
-Test case 2 Start<br/>
-Navigate View Accounts Page<br/>
- - PASSED : View Account was clicked<br/>
-Navigate User: Shebon<br/>
- - PASSED : Shebon was clicked<br/>
-Validate Users details field if displayed:<br/>
- - PASSED : Field Name: with data Shebon is Displayed<br/>
- - PASSED : Field Account Number : with data 9111234562567 is Displayed<br/>
- - PASSED : Field Email Id : with data karen99@gmail.com is Displayed<br/>
- - PASSED : Field Mobile Number : with data 1234567895 is Displayed<br/>
- - PASSED : Field IFSC Code with data CAB54321098 is Displayed<br/>
- - PASSED : Field Current balance : with data 945.16 is Displayed<br/>
-Test case 2 : Finished<br/>
-    <br/>
-</div>
-</td>
-<td></td>
-<td>17</td>
-<td>com.browserstack.FinalExamPOC_MyBank_02@2a640157</td></tr>
-<tr>
 <td title='com.browserstack.FinalExamPOC_MyBank_01.myBank_01()'><b>myBank_01</b><br>Test class: com.browserstack.FinalExamPOC_MyBank_01<br/>
-<a href="#Output-1547994163" onClick='toggleBox("Output-1547994163", this, "Show output", "Hide output");'>Show output</a>
+<a href="#Output-53301881" onClick='toggleBox("Output-53301881", this, "Show output", "Hide output");'>Show output</a>
 
-<a href="#Output-1547994163" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-1547994163">
+<a href="#Output-53301881" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-53301881">
     <br/>
 Test case 1 Start<br/>
 Navigate View Accounts Page<br/>
@@ -169,7 +168,7 @@ Navigate View Accounts Page<br/>
 Verify 'Banking System' text from header if Displayed:<br/>
  - PASSED : Banking System text is displayed<br/>
  - PASSED : Text is at the correct position<br/>
-Get and log the accounts listed in the page:<br/>
+Get and Log the accounts listed in the page:<br/>
  - PASSED : Account 1 details : Account Number: 9111234561644 Customer Name: Cyril<br/>
  - PASSED : Account 2 details : Account Number: 9111234562463 Customer Name: Neomi<br/>
  - PASSED : Account 3 details : Account Number: 9111234562567 Customer Name: Shebon<br/>
@@ -184,43 +183,59 @@ Test case 1 : Finished<br/>
 </div>
 </td>
 <td></td>
-<td>20</td>
-<td>com.browserstack.FinalExamPOC_MyBank_01@35f26e72</td></tr>
+<td>19</td>
+<td>com.browserstack.FinalExamPOC_MyBank_01@67304a40</td></tr>
 <tr>
 <td title='com.browserstack.FinalExamPOC_MyBank_03.myBank_03()'><b>myBank_03</b><br>Test class: com.browserstack.FinalExamPOC_MyBank_03<br/>
-<a href="#Output-1807397140" onClick='toggleBox("Output-1807397140", this, "Show output", "Hide output");'>Show output</a>
+<a href="#Output-1177685146" onClick='toggleBox("Output-1177685146", this, "Show output", "Hide output");'>Show output</a>
 
-<a href="#Output-1807397140" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-1807397140">
+<a href="#Output-1177685146" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1177685146">
     <br/>
 Test case 3 Start<br/>
 Navigate View Accounts Page<br/>
  - PASSED : View Account was clicked<br/>
 Navigate User: Nikita as Sender<br/>
  - PASSED : Nikita was clicked<br/>
-Processing Transfer of Money<br/>
+Processing Transfer of Money with amount: 5000.0<br/>
  - PASSED : Transfer Money was clicked<br/>
- - PASSED : Send money with amount:500.0<br/>
- - PASSED : Send Money was clicked<br/>
- - PASSED : Navigate User: Shebon as the Receiver<br/>
- - PASSED : Shebon was clicked<br/>
- - FAILED : Toast message verification failed<br/>
- - PASSED : Money from Nikita is sent to Shebon with amount of 500.0 is transfered successfully<br/>
+ - FAILED : Insufficient User Balance<br/>
+ - PASSED : Cancel was clicked<br/>
+ - PASSED : Yes was clicked<br/>
+Navigate to Previous page<br/>
 Test case 3 : Finished<br/>
-    <br/>
-    <br/>
-Test case 4 Start<br/>
-Navigate Transaction History Page<br/>
- - PASSED : History was clicked<br/>
-Checking Transaction History Page<br/>
- - PASSED : Transaction : Money with amount of 500.00 from Nikita that sent to Shebon is Displayed in Transaction History Page.<br/>
-Test case 4 : Finished<br/>
     <br/>
 </div>
 </td>
 <td></td>
-<td>24</td>
-<td>com.browserstack.FinalExamPOC_MyBank_03@52851b44</td></tr>
+<td>18</td>
+<td>com.browserstack.FinalExamPOC_MyBank_03@5d8bafa9</td></tr>
+<tr>
+<td title='com.browserstack.FinalExamPOC_MyBank_02.myBank_02()'><b>myBank_02</b><br>Test class: com.browserstack.FinalExamPOC_MyBank_02<br/>
+<a href="#Output-1762984107" onClick='toggleBox("Output-1762984107", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1762984107" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1762984107">
+    <br/>
+Test case 2 Start<br/>
+Navigate View Accounts Page<br/>
+ - PASSED : View Account was clicked<br/>
+Navigate User: Meenakshi<br/>
+ - PASSED : Meenakshi was clicked<br/>
+Validate Users details field if displayed:<br/>
+ - PASSED : Field Name with data Meenakshi is Displayed<br/>
+ - PASSED : Field Account Number with data 9111234568524 is Displayed<br/>
+ - PASSED : Field Email ID with data meenu99@gmail.com is Displayed<br/>
+ - PASSED : Field Mobile Number with data 1234567892 is Displayed<br/>
+ - PASSED : Field IFSC Code with data CAB87654321 is Displayed<br/>
+ - PASSED : Field Current Balance with data 1,359.56 is Displayed<br/>
+Test case 2 : Finished<br/>
+    <br/>
+</div>
+</td>
+<td></td>
+<td>14</td>
+<td>com.browserstack.FinalExamPOC_MyBank_02@584f54e6</td></tr>
 </table><p>
 </body>
 </html>

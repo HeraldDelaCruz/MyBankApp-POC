@@ -1,28 +1,21 @@
 package com.myBank.methods;
 
-import static org.junit.Assert.assertTrue;
 
-import java.time.Duration;
+import java.io.IOException;
+import java.text.DecimalFormat;
 import java.util.List;
-
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Point;
-import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebElement;
 import org.testng.Reporter;
-import org.testng.asserts.SoftAssert;
-
-import com.myBank.pages.AppObjects;
-import com.myBank.testdata.TestData;
-import com.myBank.utility.BaseClass;
 import com.myBank.utility.Utils;
-
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.AndroidDriver;
 
 
 public class HomePageMethods extends Utils{
-	public static AndroidDriver driver;
+	public AndroidDriver driver;
 	
 	public HomePageMethods(AndroidDriver driver) {
 		super(driver);
@@ -30,8 +23,7 @@ public class HomePageMethods extends Utils{
 	}
 	
 	
-	//TC_01
-	public void validateBankText() {
+	public void validateBankText() throws IOException {
 		utils.assertTextIsDisplayed(appObjects.BankingSystem);
 		isElementPresent(appObjects.BankingSystem);
 	}
@@ -57,21 +49,31 @@ public class HomePageMethods extends Utils{
 	 }
 
 	
-	public void isElementPresent(String[] element) {
-        int xloc = 56;
-        int yloc = 196;
-		
-        WebElement elem = driver.findElement(AppiumBy.xpath(element[1])); // (56, 196)
+	public void isElementPresent(String[] element) throws IOException {
+		Dimension screenSize = driver.manage().window().getSize();
+        int screenWidth = screenSize.getWidth();
+        int screenHeight = screenSize.getHeight();
+       
+        WebElement elem = driver.findElement(AppiumBy.xpath(element[1])); // (pixel 6 pro : 56, 196)
 
         Point elementLocation = elem.getLocation();
-        int elementX = elementLocation.getX();
-        int elementY = elementLocation.getY();
         
-        if (elementX == xloc && elementY == yloc) {
+        float elementX = (float) elementLocation.getX() ;
+        float elementY = (float) elementLocation.getY();
+        
+        float locXpercent = ((float) (elementX / screenWidth) * 100);
+        float locYpercent = ((float) (elementY / screenHeight)* 100);
+        
+        float ExpectedXLoc = ((float) locXpercent /100 * screenWidth);
+        float ExpectedYLoc = ((float) locYpercent /100 * screenHeight);
+        
+        if (Math.abs(elementX - ExpectedXLoc) <= 5 && Math.abs(elementY - ExpectedYLoc) <= 5) {
         	Reporter.log(" - PASSED : Text is at the correct position",true);
         }
         else {
         	Reporter.log(" - FAILED : Text is not present in the position",true);
+        	softAssert.fail(" - FAILED : Text is not present in the position");
+        	utils.getScreenShot();
         }
 		
     	}
